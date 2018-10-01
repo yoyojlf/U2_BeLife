@@ -1,0 +1,12 @@
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\BeLifeProjetConexion\AccesoDato\bin\Debug\AccesoDato.dll.config
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\BeLifeProjetConexion\AccesoDato\bin\Debug\AccesoDato.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\BeLifeProjetConexion\AccesoDato\bin\Debug\AccesoDato.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\BeLifeProjetConexion\AccesoDato\bin\Debug\EntityFramework.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\BeLifeProjetConexion\AccesoDato\bin\Debug\EntityFramework.SqlServer.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\BeLifeProjetConexion\AccesoDato\bin\Debug\EntityFramework.xml
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\BeLifeProjetConexion\AccesoDato\bin\Debug\EntityFramework.SqlServer.xml
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\BeLifeProjetConexion\AccesoDato\obj\Debug\AccesoDato.csprojResolveAssemblyReference.cache
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\BeLifeProjetConexion\AccesoDato\obj\Debug\AccesoDato.csproj.CoreCompileInputs.cache
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\BeLifeProjetConexion\AccesoDato\obj\Debug\AccesoDato.csproj.CopyComplete
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\BeLifeProjetConexion\AccesoDato\obj\Debug\AccesoDato.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\BeLifeProjetConexion\AccesoDato\obj\Debug\AccesoDato.pdb

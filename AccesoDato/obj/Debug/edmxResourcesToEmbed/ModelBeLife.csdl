@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BeLifeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="RutCliente" />
+    </Key>
+    <Property Name="RutCliente" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombres" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IdSexo" Type="Int32" Nullable="false" />
+    <Property Name="IdEstadoCivil" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="EstadoCivil" Relationship="Self.Cliente_EstadoCivil_FK1" FromRole="Cliente" ToRole="EstadoCivil" />
+    <NavigationProperty Name="Sexo" Relationship="Self.Cliente_Sexo_FK1" FromRole="Cliente" ToRole="Sexo" />
+  </EntityType>
+  <EntityType Name="EstadoCivil">
+    <Key>
+      <PropertyRef Name="IdEstadoCivil" />
+    </Key>
+    <Property Name="IdEstadoCivil" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.Cliente_EstadoCivil_FK1" FromRole="EstadoCivil" ToRole="Cliente" />
+  </EntityType>
+  <EntityType Name="Sexo">
+    <Key>
+      <PropertyRef Name="IdSexo" />
+    </Key>
+    <Property Name="IdSexo" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.Cliente_Sexo_FK1" FromRole="Sexo" ToRole="Cliente" />
+  </EntityType>
+  <Association Name="Cliente_EstadoCivil_FK1">
+    <End Role="EstadoCivil" Type="Self.EstadoCivil" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoCivil">
+        <PropertyRef Name="IdEstadoCivil" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="IdEstadoCivil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Cliente_Sexo_FK1">
+    <End Role="Sexo" Type="Self.Sexo" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sexo">
+        <PropertyRef Name="IdSexo" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="IdSexo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BeLifeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="EstadoCivil" EntityType="Self.EstadoCivil" />
+    <EntitySet Name="Sexo" EntityType="Self.Sexo" />
+    <AssociationSet Name="Cliente_EstadoCivil_FK1" Association="Self.Cliente_EstadoCivil_FK1">
+      <End Role="EstadoCivil" EntitySet="EstadoCivil" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="Cliente_Sexo_FK1" Association="Self.Cliente_Sexo_FK1">
+      <End Role="Sexo" EntitySet="Sexo" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
