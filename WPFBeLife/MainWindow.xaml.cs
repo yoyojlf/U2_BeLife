@@ -51,8 +51,8 @@ namespace WPFBeLife
         private void MostrarClientes()
         {
             Cliente Clie = new Cliente();
-            //DgClientes.ItemsSource = Clie.ReadAll();
-            //DgClientes.Items.Refresh();
+            DgClientes.ItemsSource = Clie.ReadAll();
+            DgClientes.Items.Refresh();
             //CargaRut();
         }
         #endregion
@@ -83,6 +83,17 @@ namespace WPFBeLife
             //MessageBox.Show(DateTime.Today.AddYears(-18)+"");
             //LbRut.ItemsSource = clientes;
             //LbRut.DisplayMemberPath = "Rut";
+            //cargar combo box del filtro en lista de usuarios
+            //Sexo
+            CbSexoListaCli.ItemsSource = ComboSexo.ReadAll();
+            CbSexoListaCli.SelectedValuePath = "IdSexo";
+            CbSexoListaCli.DisplayMemberPath = "Descripcion";
+            
+            //Estado civil
+            CbEstadoCivilListaCli.ItemsSource = ComboEstados.ReadAll();
+            CbEstadoCivilListaCli.SelectedValuePath = "IdEstadoCivil";
+            CbEstadoCivilListaCli.DisplayMemberPath = "Descripcion";
+            
 
             MostrarClientes();
         }
@@ -133,7 +144,8 @@ namespace WPFBeLife
             int index = -1;
             int count = 0;
             List<Cliente> clientes = new List<Cliente>();
-            
+            Cliente clien = new Cliente();
+            clientes = clien.ReadAll();
             foreach (Cliente x in clientes)
             {
                 if (x.RutCliente.Equals(TxtRut.Text))
@@ -275,7 +287,7 @@ namespace WPFBeLife
             //Contrato_FO.IsOpen = false;
             Cliente_FO.IsOpen = true;
             Limpiar();
-            //Cliente_Listar.IsOpen = false;
+            Cliente_Listar.IsOpen = false;
             //Contrato_Listar.IsOpen = false;
         }
 
@@ -284,7 +296,8 @@ namespace WPFBeLife
 
             //Contrato_FO.IsOpen = false;
             Cliente_FO.IsOpen = false;
-            //Cliente_Listar.IsOpen = true;
+            Cliente_Listar.IsOpen = true;
+            Limpiar();
             //Contrato_Listar.IsOpen = false;
         }
 
