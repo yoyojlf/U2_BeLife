@@ -253,3 +253,47 @@ C:\Users\YoYo\Downloads\SolucionBeLife\WPFBeLife\obj\Debug\WPFBeLife.csproj.Core
 C:\Users\YoYo\Downloads\SolucionBeLife\WPFBeLife\obj\Debug\WPFBeLife.csproj.CopyComplete
 C:\Users\YoYo\Downloads\SolucionBeLife\WPFBeLife\obj\Debug\WPFBeLife.exe
 C:\Users\YoYo\Downloads\SolucionBeLife\WPFBeLife\obj\Debug\WPFBeLife.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\obj\Debug\WPFBeLife.csprojResolveAssemblyReference.cache
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\obj\Debug\Resources\Icons.baml
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\obj\Debug\Resources\IconsNonShared.baml
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\obj\Debug\MainWindow.g.cs
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\obj\Debug\App.g.cs
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\obj\Debug\WPFBeLife_MarkupCompile.cache
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\obj\Debug\WPFBeLife_MarkupCompile.lref
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\obj\Debug\WPFBeLife.exe
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\obj\Debug\WPFBeLife.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\WPFBeLife.exe.config
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\WPFBeLife.exe
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\WPFBeLife.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\ControlzEx.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\MahApps.Metro.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\MahApps.Metro.IconPacks.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\System.Windows.Interactivity.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\ControlzEx.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\MahApps.Metro.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\MahApps.Metro.xml
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\MahApps.Metro.IconPacks.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\MahApps.Metro.IconPacks.xml
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.xml
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\MahApps.Metro.IconPacks.Material.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.xml
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\obj\Debug\App.baml
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\obj\Debug\MainWindow.baml
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\obj\Debug\WPFBeLife.g.resources
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\obj\Debug\WPFBeLife.Properties.Resources.resources
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\obj\Debug\WPFBeLife.csproj.GenerateResource.cache
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\obj\Debug\WPFBeLife.csproj.CoreCompileInputs.cache
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\obj\Debug\WPFBeLife.csproj.CopyComplete
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\BibliotecaNegocio.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\AccesoDato.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\EntityFramework.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\BibliotecaNegocio.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\AccesoDato.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\AccesoDato.dll.config
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\WPFBeLife\bin\Debug\EntityFramework.xml

@@ -125,7 +125,7 @@
 
         <!--Home-->
 
-        <Controls:Flyout  x:Name="Contrato_FO"   Position="Right" Background="#FF7D7484" Width="692" Grid.Row="2" Foreground="White" Header="Contrato" Margin="0,3,0,0" Visibility="Hidden">
+        <!--<Controls:Flyout  x:Name="Contrato_FO"   Position="Right" Background="#FF7D7484" Width="692" Grid.Row="2" Foreground="White" Header="Contrato" Margin="0,3,0,0" Visibility="Hidden">
             <Canvas RenderTransformOrigin="0.274,0.863" Height="324"  >
 
                 <Grid Height="291" Width="397" Canvas.Left="10">
@@ -174,7 +174,7 @@
                     </DatePicker>
                     <Grid/>
 
-                    <!--Botones Contrato-->
+                    --><!--Botones Contrato--><!--
 
                     <mah:Tile x:Name="AgregarContrato" Height="Auto" Margin="22,271,272,-14" Width="Auto"  Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" >
                         <mah:Tile.Effect>
@@ -226,7 +226,7 @@
 
 
 
-                    <!--Resumen Plan-->
+                    --><!--Resumen Plan--><!--
                 </Grid>
                 <Grid  Height="346" Width="248" Canvas.Left="434" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" Canvas.Top="-32">
                     <Label  Content="Resumen Plan" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.591,0.036" Cursor="None" Foreground="#FF7E3B82" FontWeight="Bold"/>
@@ -254,7 +254,7 @@
 
                 </Grid>
             </Canvas>
-        </Controls:Flyout>
+        </Controls:Flyout>-->
 
         <!--Cliente-->
         <Controls:Flyout x:Name="Cliente_FO"  Visibility="Hidden" Position="Right" Background="#FF7D7484" Width="692" Grid.Row="2" Foreground="White" Header="Cliente">
@@ -263,7 +263,7 @@
                 <Grid Height="327" Width="601" Canvas.Left="10" Background="#FF7D7484">
 
 
-                    <TextBox x:Name="txtRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,463,268" Height="26" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" Foreground="White" CaretBrush="White" >
+                    <TextBox x:Name="TxtRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,463,268" Height="26" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" Foreground="White" CaretBrush="White" >
                         <TextBox.Effect>
                             <DropShadowEffect/>
                         </TextBox.Effect>
@@ -271,35 +271,35 @@
                     <Label Canvas.Left="47" Canvas.Top="75" Content="Rut" Foreground="#FFFDFDFD" FontSize="14" RenderTransformOrigin="-0.054,0.535" FontWeight="Bold" Margin="10,0,347,301" />
 
                     <Label Content="Nombres" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="72" Foreground="White" FontWeight="Bold"/>
-                    <TextBox x:Name="txtNombres" RenderTransformOrigin="3.697,5.117" Canvas.Left="47" Canvas.Top="109" Foreground="White" Margin="10,116,423,191" CaretBrush="White" >
+                    <TextBox x:Name="TxtNombre" RenderTransformOrigin="3.697,5.117" Canvas.Left="47" Canvas.Top="109" Foreground="White" Margin="10,116,423,191" CaretBrush="White" >
                         <TextBox.Effect>
                             <DropShadowEffect/>
                         </TextBox.Effect>
                     </TextBox>
 
                     <Label Content="Apellidos" HorizontalAlignment="Left" Margin="218,85,0,0" VerticalAlignment="Top" Width="72" Foreground="White" RenderTransformOrigin="0.431,2.5" FontWeight="Bold"/>
-                    <TextBox x:Name="txtApellidos" RenderTransformOrigin="3.697,5.117" Canvas.Left="47" Canvas.Top="109" Foreground="#FFF9F0F0" Margin="218,116,215,191" CaretBrush="White" >
+                    <TextBox x:Name="TxtApellido" RenderTransformOrigin="3.697,5.117" Canvas.Left="47" Canvas.Top="109" Foreground="#FFF9F0F0" Margin="218,116,215,191" CaretBrush="White" >
                         <TextBox.Effect>
                             <DropShadowEffect Color="White"/>
                         </TextBox.Effect>
                     </TextBox>
 
                     <Label  Content="Sexo" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="218,158,215,107"/>
-                    <ComboBox  x:Name="Sexo" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="219,187,224,115" ItemsSource="{Binding sexo, ElementName=metroWindow}" SelectionChanged="CPlan_SelectionChanged" Foreground="White" >
+                    <ComboBox  x:Name="CbSexo" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="219,187,224,115" ItemsSource="{Binding sexo, ElementName=metroWindow}" SelectionChanged="CPlan_SelectionChanged" Foreground="White" >
                         <ComboBox.Effect>
                             <DropShadowEffect/>
                         </ComboBox.Effect>
                     </ComboBox>
 
                     <Label  Content="Fecha Nacimiento" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="10,158,411,95"/>
-                    <DatePicker x:Name="dateFecha" Canvas.Left="256" SelectedDate="{x:Static sys:DateTime.Now}"    FontWeight="Bold" FontSize="14" Canvas.Top="244" Margin="10,187,423,116" Foreground="White">
+                    <DatePicker x:Name="DpFechaNacimiento" Canvas.Left="256" SelectedDate="{x:Static sys:DateTime.Now}"    FontWeight="Bold" FontSize="14" Canvas.Top="244" Margin="10,187,423,116" Foreground="White">
                         <DatePicker.Effect>
                             <DropShadowEffect/>
                         </DatePicker.Effect>
                     </DatePicker>
 
                     <Label  Content="Estado Civil" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="416,158,17,108"/>
-                    <ComboBox  x:Name="EstadoCivil" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="416,187,27,115" ItemsSource="{Binding estadocivil, ElementName=metroWindow}" SelectionChanged="CPlan_SelectionChanged" Foreground="White" >
+                    <ComboBox  x:Name="CbEstadoCivil" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="416,187,27,115" ItemsSource="{Binding estadocivil, ElementName=metroWindow}" SelectionChanged="CPlan_SelectionChanged" Foreground="White" >
                         <ComboBox.Effect>
                             <DropShadowEffect/>
                         </ComboBox.Effect>
@@ -357,7 +357,7 @@
         </Controls:Flyout>
 
         <!--Listar Cliente-->
-        <Controls:Flyout x:Name="Cliente_Listar" Visibility="Collapsed" Position="Right" Background="#FF7D7484" Width="692" Grid.Row="2" Foreground="White" Header="Listar Clientes">
+        <!--<Controls:Flyout x:Name="Cliente_Listar" Visibility="Collapsed" Position="Right" Background="#FF7D7484" Width="692" Grid.Row="2" Foreground="White" Header="Listar Clientes">
             <mah:Flyout.Effect>
                 <DropShadowEffect/>
             </mah:Flyout.Effect>
@@ -395,7 +395,7 @@
                         </mah:Tile.Background>
                     </mah:Tile>
 
-                    <DataGrid HorizontalAlignment="Left" Height="199" Margin="11,98,0,-6" VerticalAlignment="Top"  SelectionChanged="DataGrid_SelectionChanged" Foreground="White" Background="#FF5B4660" OpacityMask="White" CanUserAddRows="False" CanUserDeleteRows="False" RenderTransformOrigin="0.5,0.5">
+                    <DataGrid x:Name="DgClientes" HorizontalAlignment="Left" Height="199" Margin="11,98,0,-6" VerticalAlignment="Top"  SelectionChanged="DataGrid_SelectionChanged" Foreground="White" Background="#FF5B4660" OpacityMask="White" CanUserAddRows="False" CanUserDeleteRows="False" RenderTransformOrigin="0.5,0.5">
                         <DataGrid.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -408,11 +408,12 @@
                             <DropShadowEffect/>
                         </DataGrid.Effect>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="ID" Foreground="White"/>
-                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Nombre" Foreground="White"/>
-                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Apellido" Foreground="White"/>
-                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Sexo" Foreground="White"/>
-                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Estado Civil" Foreground="White"/>
+                            <DataGridTextColumn Header="Rut" Binding="{Binding RutCliente}"/>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombres}"/>
+                            <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}"/>
+                            <DataGridTextColumn Header="Fecha de Nacimiento" Binding="{Binding FechaNacimiento}"/>
+                            <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo.Descripcion}"/>
+                            <DataGridTextColumn Header="Estado Civil" Binding="{Binding EstadoCivil.Descripcion}"/>
                         </DataGrid.Columns>
 
 
@@ -421,10 +422,10 @@
 
                 </Grid>
             </Canvas>
-        </Controls:Flyout>
+        </Controls:Flyout>-->
 
         <!--Listar Contrato-->
-        <Controls:Flyout x:Name="Contrato_Listar"  Position="Right" Background="#FF7D7484" Width="692" Grid.Row="2" Foreground="White" Header="Listar Contratos" Visibility="Hidden">
+        <!--<Controls:Flyout x:Name="Contrato_Listar"  Position="Right" Background="#FF7D7484" Width="692" Grid.Row="2" Foreground="White" Header="Listar Contratos" Visibility="Hidden">
             <Canvas RenderTransformOrigin="0.274,0.863"  >
 
                 <Grid Height="291" Width="682" Canvas.Left="10">
@@ -488,7 +489,7 @@
 
                 </Grid>
             </Canvas>
-        </Controls:Flyout>
+        </Controls:Flyout>-->
 
     </Grid>
 

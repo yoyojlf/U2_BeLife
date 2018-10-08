@@ -14,6 +14,12 @@ namespace AccesoDato
     
     public partial class Cliente
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Cliente()
+        {
+            this.Contrato = new HashSet<Contrato>();
+        }
+    
         public string RutCliente { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
@@ -23,5 +29,7 @@ namespace AccesoDato
     
         public virtual EstadoCivil EstadoCivil { get; set; }
         public virtual Sexo Sexo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Contrato> Contrato { get; set; }
     }
 }

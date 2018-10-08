@@ -115,3 +115,11 @@ E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BeLifeProjet\obj\Debug\CapaU
 E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BeLifeProjet\obj\Debug\CapaUsuario.csproj.CopyComplete
 E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BeLifeProjet\obj\Debug\BeLifeProjet.exe
 E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BeLifeProjet\obj\Debug\BeLifeProjet.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BeLifeProjet\bin\Debug\ControlzEx.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BeLifeProjet\bin\Debug\MahApps.Metro.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BeLifeProjet\bin\Debug\System.Windows.Interactivity.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BeLifeProjet\bin\Debug\ControlzEx.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BeLifeProjet\bin\Debug\MahApps.Metro.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BeLifeProjet\bin\Debug\MahApps.Metro.xml
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BeLifeProjet\obj\Debug\Resources\Icons.baml
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BeLifeProjet\obj\Debug\Resources\IconsNonShared.baml
