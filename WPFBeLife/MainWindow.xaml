@@ -307,7 +307,7 @@
 
                     <!--Cliente Botones-->
 
-                    <mah:Tile x:Name="AgregarCliente" Height="Auto" Margin="36,262,463,37" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" Click="AgregarCliente_Click" >
+                    <mah:Tile x:Name="BtnRegistrarCliente" Height="Auto" Margin="36,262,463,37" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" Click="BtnRegistrarCliente_Click" >
                         <mah:Tile.Effect>
                             <DropShadowEffect/>
                         </mah:Tile.Effect>
@@ -316,7 +316,7 @@
                         </mah:Tile.Background>
                     </mah:Tile>
 
-                    <mah:Tile x:Name="EliminarCliente" Height="Auto" Margin="170,262,329,37" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" >
+                    <mah:Tile x:Name="BtnEliminarCliente" Height="Auto" Margin="170,262,329,37" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" Click="BtnEliminarCliente_Click" >
                         <mah:Tile.Effect>
                             <DropShadowEffect/>
                         </mah:Tile.Effect>
@@ -325,7 +325,7 @@
                         </mah:Tile.Background>
                     </mah:Tile>
 
-                    <mah:Tile x:Name="ActualizarCliente" Height="Auto" Margin="309,262,190,37" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" >
+                    <mah:Tile x:Name="BtnActualizarCliente" Height="Auto" Margin="309,262,190,37" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" Click="BtnActualizarCliente_Click" >
                         <mah:Tile.Effect>
                             <DropShadowEffect/>
                         </mah:Tile.Effect>
@@ -334,7 +334,7 @@
                         </mah:Tile.Background>
                     </mah:Tile>
 
-                    <mah:Tile x:Name="BuscarCliente" Height="Auto" Margin="218,26,281,268" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" >
+                    <mah:Tile x:Name="BtnConsultar" Height="Auto" Margin="218,26,281,268" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" Click="BtnConsultar_Click" >
                         <mah:Tile.Effect>
                             <DropShadowEffect/>
                         </mah:Tile.Effect>

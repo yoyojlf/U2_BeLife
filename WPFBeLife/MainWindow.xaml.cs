@@ -86,7 +86,170 @@ namespace WPFBeLife
 
             MostrarClientes();
         }
+
+        //boton de agregar Cliente
+        private void BtnRegistrarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            Cliente cliente = new Cliente();
+            Sexo Sex = new Sexo();
+            EstadoCivil Est = new EstadoCivil();
+
+            if (Buscar() == -1)
+            {
+                try
+                {
+                    cliente.RutCliente = TxtRut.Text;
+                    cliente.Nombres = TxtNombre.Text;
+                    cliente.Apellidos = TxtApellido.Text;
+                    cliente.FechaNacimiento = (DateTime)DpFechaNacimiento.SelectedDate;
+                    Sex.IdSexo = (int)CbSexo.SelectedValue;
+                    Sex.Descripcion = CbSexo.Text;
+                    cliente.IdSexo = (int)CbSexo.SelectedValue;
+                    cliente.Sexo = Sex;
+                    Est.IdEstadoCivil = (int)CbEstadoCivil.SelectedValue;
+                    Est.Descripcion = CbEstadoCivil.Text;
+                    cliente.IdEstadoCivil = (int)CbEstadoCivil.SelectedValue;
+                    cliente.EstadoCivil = Est;
+                    //agregar cliente
+                    cliente.Create();
+                    MostrarClientes();
+                    MessageBox.Show("Se ha registrado exitosamente!! ", "Registro Exito!", MessageBoxButton.OK, MessageBoxImage.None);
+                }
+                catch (ArgumentException ex)
+                {
+                    MessageBox.Show(ex.Message + "", "ERROR!!");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("NO Se ha registrado exitosamente!!\nCliente Ya Existe!!", "Sin Exito!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+
+        private int Buscar()
+        {
+            int index = -1;
+            int count = 0;
+            List<Cliente> clientes = new List<Cliente>();
+            
+            foreach (Cliente x in clientes)
+            {
+                if (x.RutCliente.Equals(TxtRut.Text))
+                {
+                    index = count;
+                    break;
+                }
+                count++;
+            }
+            return index;
+        }
+
+        private void BtnEliminarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            Cliente cliente = new Cliente();
+            try
+            {
+                cliente.RutCliente = TxtRut.Text;
+                cliente.Delete();
+                MessageBox.Show("cliente eliminado correctamente!!!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("cliente no eliminado correctamente!!!");
+            }
+
+            MostrarClientes();
+
+        }
+
+        //boton para consultar cliente y cargar datos si es que existe
+        private void BtnConsultar_Click(object sender, RoutedEventArgs e)
+        {
+            CargarCliente(ConsultaCliente());
+        }
+
+        //consuta cliente TxtRut contra la base de datos
+        private Cliente ConsultaCliente()
+        {
+            Cliente clie = new Cliente();
+            try
+            {
+                if (!TxtRut.Text.Equals(string.Empty))
+                {
+                    clie.RutCliente = TxtRut.Text;
+                    clie.Read();
+                    return clie;
+                }
+                else
+                {
+                    throw new ArgumentException("Debe ingresar un rut para consultar!!!");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Advertencia!");
+                return clie;
+            }
+
+        }
+
+        //cargar datos de cliente clie
+        private void CargarCliente(Cliente Cli)
+        {
+            if (!Cli.RutCliente.Equals(string.Empty))
+            {
+                TxtRut.Text = Cli.RutCliente;
+                TxtNombre.Text = Cli.Nombres;
+                TxtApellido.Text = Cli.Apellidos;
+                DpFechaNacimiento.SelectedDate = Cli.FechaNacimiento;
+                CbSexo.SelectedValue = Cli.IdSexo;
+                CbEstadoCivil.SelectedValue = Cli.IdEstadoCivil;
+            }
+            else
+            {
+                Limpiar();
+            }
+        }
+
+        //boton actualiza
+        private void BtnActualizarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            Cliente cliente = new Cliente();
+            Sexo Sex = new Sexo();
+            EstadoCivil Est = new EstadoCivil();
+
+            try
+            {
+                cliente.RutCliente = TxtRut.Text;
+                cliente.Nombres = TxtNombre.Text;
+                cliente.Apellidos = TxtApellido.Text;
+                cliente.FechaNacimiento = (DateTime)DpFechaNacimiento.SelectedDate;
+                Sex.IdSexo = (int)CbSexo.SelectedValue;
+                Sex.Descripcion = CbSexo.Text;
+                cliente.IdSexo = (int)CbSexo.SelectedValue;
+                cliente.Sexo = Sex;
+                Est.IdEstadoCivil = (int)CbEstadoCivil.SelectedValue;
+                Est.Descripcion = CbEstadoCivil.Text;
+                cliente.IdEstadoCivil = (int)CbEstadoCivil.SelectedValue;
+                cliente.EstadoCivil = Est;
+                cliente.Update();
+                MessageBox.Show("cliente rut: " + cliente.RutCliente + " actualizado correctamente!!!");
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message + "");
+            }
+
+
+            MostrarClientes();
+        }
+
         #endregion
+
+
         public List<String> opciones
         {
             get; set;
@@ -218,8 +381,7 @@ namespace WPFBeLife
 
     }
 
-
-
-}
+        
+    }
 
 }
