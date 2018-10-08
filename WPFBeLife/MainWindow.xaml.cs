@@ -220,7 +220,7 @@ namespace WPFBeLife
             Cliente cliente = new Cliente();
             Sexo Sex = new Sexo();
             EstadoCivil Est = new EstadoCivil();
-
+            //Commit de prueba sdhbchbcshb
             try
             {
                 cliente.RutCliente = TxtRut.Text;
