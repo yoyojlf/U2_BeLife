@@ -46,6 +46,7 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="ClienteCollection.cs" />
     <Compile Include="CommonBC.cs" />
+    <Compile Include="Contrato.cs" />
     <Compile Include="Enumerados.cs" />
     <Compile Include="EstadoCivil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

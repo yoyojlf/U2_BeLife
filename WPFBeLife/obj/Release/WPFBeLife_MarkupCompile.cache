@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Public\Documents\Nueva carpeta\WPFBeLife\obj\Debug\
+C:\Users\Public\Documents\Nueva carpeta\WPFBeLife\obj\Release\
 WPFBeLife
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\Public\Documents\Nueva carpeta\WPFBeLife\App.xaml
 3-1260861683
 
-9-893860989
-22-275241018
+5-2017746502
+211440870030
 MainWindow.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;
 
 True
