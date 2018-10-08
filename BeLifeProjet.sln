@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoDato", "AccesoDato\Ac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaNegocioTests1", "BibliotecaNegocioTests1\BibliotecaNegocioTests1.csproj", "{3F49C620-6754-4B84-BA65-07C8C79678FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFBeLife", "WPFBeLife\WPFBeLife.csproj", "{43811285-1ED2-4E90-9ECC-465F2C266B7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{3F49C620-6754-4B84-BA65-07C8C79678FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F49C620-6754-4B84-BA65-07C8C79678FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F49C620-6754-4B84-BA65-07C8C79678FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43811285-1ED2-4E90-9ECC-465F2C266B7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43811285-1ED2-4E90-9ECC-465F2C266B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43811285-1ED2-4E90-9ECC-465F2C266B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43811285-1ED2-4E90-9ECC-465F2C266B7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

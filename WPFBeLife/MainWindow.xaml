@@ -1,0 +1,495 @@
+﻿<Controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+          xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+     xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:WPFBeLife"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Name="metroWindow" x:Class="WPFBeLife.MainWindow"
+        mc:Ignorable="d"
+        Title="Seguros BeLife" Height="518.789" Width="800" >
+    <Grid Margin="0,1,0,-5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="343*"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="Logo" HorizontalAlignment="Left" Height="42" Margin="30,10,0,0" VerticalAlignment="Top" Width="129" Source="imagen/logoBeLife.png"/>
+        <Image x:Name="contraste" HorizontalAlignment="Left" Margin="715,7,0,0" VerticalAlignment="Top" Source="imagen/Contraste.png" Height="57" Width="51"/>
+        <Controls:Tile x:Name="ListarCliente1" Height="60" Margin="9,155,723,169" Width="60" Grid.Row="2" Click="ListarCliente_Click" >
+            <mah:Tile.Effect>
+                <DropShadowEffect/>
+            </mah:Tile.Effect>
+            <mah:Tile.Background>
+                <ImageBrush ImageSource="imagen/ClienteIco.png" Stretch="None"/>
+            </mah:Tile.Background>
+            <Image x:Name="listacliente" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,32,0,0" Width="26" Height="26" Source="imagen/listar.png" UseLayoutRounding="False" />
+        </Controls:Tile>
+
+        <Grid HorizontalAlignment="Left" Height="19" Grid.Row="1" VerticalAlignment="Top" Width="792" Background="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}"/>
+        <mah:Tile x:Name="ListarContrato1" Height="60" Margin="10,261,722,22" Width="60" Grid.Row="2" Click="ListarContrato_Click" >
+            <mah:Tile.Effect>
+                <DropShadowEffect/>
+            </mah:Tile.Effect>
+            <mah:Tile.Background>
+                <ImageBrush ImageSource="imagen/ContratoIco.png" Stretch="Uniform"/>
+            </mah:Tile.Background>
+            <Image x:Name="listacliente1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,32,0,0" Width="26" Height="26" Source="imagen/listar.png" UseLayoutRounding="False" IsEnabled="False" />
+
+
+
+        </mah:Tile>
+        <Grid x:Name="HOME" HorizontalAlignment="Left" Height="343" Margin="87,0,0,0" Grid.Row="2" VerticalAlignment="Top" Width="705">
+            <mah:Tile x:Name="Cliente" Height="Auto" Margin="40,22,394,190" Width="Auto" Title="Clientes" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" Click="Cliente_Click" TextOptions.TextHintingMode="Fixed" FontWeight="Bold" >
+                <mah:Tile.Effect>
+                    <DropShadowEffect/>
+                </mah:Tile.Effect>
+
+                <mah:Tile.Background>
+                    <ImageBrush ImageSource="imagen/Cliente.png" TileMode="FlipY" Stretch="None"/>
+                </mah:Tile.Background>
+            </mah:Tile>
+
+            <mah:Tile Height="Auto" Margin="40,192,394,25" Width="Auto" Click="ListarCliente_Click" Title=" Listar                                  Clientes" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" >
+                <mah:Tile.Effect>
+                    <DropShadowEffect/>
+                </mah:Tile.Effect>
+
+                <mah:Tile.Background>
+                    <ImageBrush ImageSource="imagen/Cliente.png" Stretch="None"/>
+                </mah:Tile.Background>
+                <Image x:Name="listacliente3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="51" Height="51" Source="imagen/listar.png" UseLayoutRounding="False" Margin="105,0,2,0" />
+
+
+
+            </mah:Tile>
+            <mah:Tile x:Name="Contrato" Height="Auto" Margin="388,22,32,190" Width="Auto" Click="Contrato_Click" Title="Contrato" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" >
+                <mah:Tile.Effect>
+                    <DropShadowEffect/>
+                </mah:Tile.Effect>
+
+                <mah:Tile.Background>
+                    <ImageBrush ImageSource="imagen/Contrato.png" Stretch="None" TileMode="FlipY"/>
+                </mah:Tile.Background>
+
+
+
+            </mah:Tile>
+            <mah:Tile Height="Auto" Margin="380,192,22,25" Width="Auto" Click="ListarContrato_Click" Title="    Listar                                   Contrato" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="Condensed" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" >
+                <mah:Tile.Effect>
+                    <DropShadowEffect/>
+                </mah:Tile.Effect>
+
+                <mah:Tile.Background>
+                    <ImageBrush ImageSource="imagen/Contrato.png" TileMode="FlipY" Stretch="None"/>
+                </mah:Tile.Background>
+                <Image x:Name="listacliente5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="51" Height="51" Source="imagen/listar.png" UseLayoutRounding="False" Margin="105,0,2,0" />
+
+
+
+            </mah:Tile>
+        </Grid>
+        <mah:Tile x:Name="Cliente1" Height="60" Margin="10,72,722,211" Width="60" Grid.Row="2" Click="Cliente_Click" >
+            <mah:Tile.Effect>
+                <DropShadowEffect/>
+            </mah:Tile.Effect>
+            <mah:Tile.Background>
+                <ImageBrush ImageSource="imagen/ClienteIco.png"/>
+            </mah:Tile.Background>
+
+
+
+        </mah:Tile>
+        <mah:Tile x:Name="Contrato1" Height="60" Margin="10,220,722,104" Width="60" Grid.Row="2" Click="Contrato_Click" >
+            <mah:Tile.Effect>
+                <DropShadowEffect/>
+            </mah:Tile.Effect>
+            <mah:Tile.Background>
+                <ImageBrush ImageSource="imagen/ContratoIco.png" Stretch="None"/>
+            </mah:Tile.Background>
+
+
+
+        </mah:Tile>
+        <mah:Tile x:Name="Home" Height="60" Margin="10,8,722,275" Width="60" Grid.Row="2" Click="Home_Click" SnapsToDevicePixels="True" >
+            <mah:Tile.Background>
+                <ImageBrush ImageSource="imagen/home.png" Stretch="None"/>
+            </mah:Tile.Background>
+            <mah:Tile.Effect>
+                <DropShadowEffect/>
+            </mah:Tile.Effect>
+        </mah:Tile>
+
+        <!--Home-->
+
+        <Controls:Flyout  x:Name="Contrato_FO"   Position="Right" Background="#FF7D7484" Width="692" Grid.Row="2" Foreground="White" Header="Contrato" Margin="0,3,0,0" Visibility="Hidden">
+            <Canvas RenderTransformOrigin="0.274,0.863" Height="324"  >
+
+                <Grid Height="291" Width="397" Canvas.Left="10">
+                    <Label Content="Nº Contrato" Canvas.Left="47" Width="103" Foreground="#FFFBFBFB" FontSize="14" FontWeight="Bold" Margin="10,10,284,252" RenderTransformOrigin="0.544,-0.196"/>
+
+                    <TextBox x:Name="CRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,236,172" Height="26" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" FontWeight="Bold" Foreground="Black" SelectionBrush="Black" CaretBrush="White" >
+                        <TextBox.Effect>
+                            <DropShadowEffect/>
+                        </TextBox.Effect>
+                    </TextBox>
+                    <Label Canvas.Left="47" Canvas.Top="75" Content="Rut" Foreground="#FFFDFDFD" FontSize="14" RenderTransformOrigin="-0.054,0.535" FontWeight="Bold" Margin="10,64,347,198" />
+
+                    <TextBox x:Name="CApellidos" RenderTransformOrigin="3.697,5.117" Canvas.Left="47" Canvas.Top="109" Foreground="White" Margin="214,152,32,113" FontWeight="Bold" >
+                        <TextBox.Effect>
+                            <DropShadowEffect/>
+                        </TextBox.Effect>
+                    </TextBox>
+
+                    <Label Canvas.Left="47" Canvas.Top="145" Content="Nombres" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="9,124,317,139"/>
+                    <TextBox x:Name="CnContrato" Canvas.Left="47" Canvas.Top="174" Margin="10,38,236,227" IsReadOnly="True" IsUndoEnabled="False" MaxLines="2147483646" Foreground="White" >
+                        <TextBox.Effect>
+                            <DropShadowEffect/>
+                        </TextBox.Effect>
+                    </TextBox>
+
+
+                    <Label  Content="Apellidos" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="214,117,100,144"/>
+                    <TextBox x:Name="CNombres" RenderTransformOrigin="18.368,7.628" Margin="10,152,236,113" Foreground="White" >
+                        <TextBox.Effect>
+                            <DropShadowEffect/>
+                        </TextBox.Effect>
+                    </TextBox>
+
+                    <Label  Content="Plan" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="9,183,343,77"/>
+                    <ComboBox  x:Name="CPlan" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="10,214,236,51" ItemsSource="{Binding opciones, ElementName=metroWindow}" SelectionChanged="CPlan_SelectionChanged" Foreground="White" >
+                        <ComboBox.Effect>
+                            <DropShadowEffect/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+
+                    <Label  Content="Fecha inicio plan" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="214,183,18,63"/>
+                    <DatePicker x:Name="CFecha" Canvas.Left="256" SelectedDate="{x:Static sys:DateTime.Now}"    FontWeight="Bold" FontSize="14" Canvas.Top="244" Margin="214,214,32,51" Foreground="#FFFDFDFD">
+                        <DatePicker.Effect>
+                            <DropShadowEffect/>
+                        </DatePicker.Effect>
+                    </DatePicker>
+                    <Grid/>
+
+                    <!--Botones Contrato-->
+
+                    <mah:Tile x:Name="AgregarContrato" Height="Auto" Margin="22,271,272,-14" Width="Auto"  Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" >
+                        <mah:Tile.Effect>
+                            <DropShadowEffect/>
+                        </mah:Tile.Effect>
+                        <mah:Tile.Background>
+                            <ImageBrush ImageSource="imagen/ContratoAdd.png" Stretch="None"/>
+                        </mah:Tile.Background>
+                    </mah:Tile>
+
+                    <mah:Tile x:Name="ActualizarContrato" Height="Auto" Margin="156,271,138,-14" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" >
+                        <mah:Tile.Effect>
+                            <DropShadowEffect/>
+                        </mah:Tile.Effect>
+                        <mah:Tile.Background>
+                            <ImageBrush ImageSource="imagen/ContratoUpdate.png" Stretch="None"/>
+                        </mah:Tile.Background>
+                    </mah:Tile>
+
+
+                    <mah:Tile x:Name="EliminarContrato" Height="Auto" Margin="294,271,0,-14" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" >
+                        <mah:Tile.Effect>
+                            <DropShadowEffect/>
+                        </mah:Tile.Effect>
+                        <mah:Tile.Background>
+                            <ImageBrush ImageSource="imagen/ContratoDelete.png" Stretch="None"/>
+                        </mah:Tile.Background>
+                    </mah:Tile>
+
+
+                    <mah:Tile x:Name="BuscarContrato" Height="Auto" Margin="181,30,113,227" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" >
+                        <mah:Tile.Effect>
+                            <DropShadowEffect/>
+                        </mah:Tile.Effect>
+                        <mah:Tile.Background>
+                            <ImageBrush ImageSource="imagen/ContratoSearch.png" Stretch="None"/>
+                        </mah:Tile.Background>
+                    </mah:Tile>
+
+                    <mah:Tile x:Name="ListarContrato" Height="Auto" Margin="294,30,0,227" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" >
+                        <mah:Tile.Effect>
+                            <DropShadowEffect/>
+                        </mah:Tile.Effect>
+                        <mah:Tile.Background>
+                            <ImageBrush ImageSource="imagen/ListarC.png" Stretch="None"/>
+                        </mah:Tile.Background>
+                    </mah:Tile>
+
+
+
+
+                    <!--Resumen Plan-->
+                </Grid>
+                <Grid  Height="346" Width="248" Canvas.Left="434" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" Canvas.Top="-32">
+                    <Label  Content="Resumen Plan" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.591,0.036" Cursor="None" Foreground="#FF7E3B82" FontWeight="Bold"/>
+                    <Label Content="Tipo Plan:" HorizontalAlignment="Left" Margin="27,41,0,0" VerticalAlignment="Top" Width="71" FontWeight="Bold"/>
+                    <Label Content="Poliza:" HorizontalAlignment="Left" Margin="27,76,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.673,0.115" FontWeight="Bold"/>
+                    <Label Content="Prima Anual:" HorizontalAlignment="Left" Margin="27,112,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.231" FontWeight="Bold"/>
+                    <Label x:Name="TipoPlan" Content="[Vida Inicial]" HorizontalAlignment="Left" Margin="121,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.237,0.538" Width="97" Background="White" Foreground="#FF7E3B82" HorizontalContentAlignment="Right" FontWeight="Bold"/>
+                    <Label x:Name="poliza" Content="[XXXXX] " HorizontalAlignment="Left" Margin="121,76,0,0" VerticalAlignment="Top" Foreground="#FF7E3B82" Background="White" Width="97" HorizontalContentAlignment="Right" FontWeight="Bold"/>
+                    <Label x:Name="PrimaAnual" Content="[XXXXX] " Margin="121,112,0,0" VerticalAlignment="Top" Width="97" Foreground="#FF7E3B82" Background="White" HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontWeight="Bold"/>
+                    <Label Content="Prima Mensual:" HorizontalAlignment="Left" Margin="23,151,0,0" VerticalAlignment="Top" Width="98" FontWeight="Bold"/>
+                    <Label x:Name="PrimaMensual" Content="[XXXXX] " HorizontalAlignment="Left" Margin="121,151,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,0.115" Width="97" Background="White" Foreground="#FF7E3B82" HorizontalContentAlignment="Right" FontWeight="Bold"/>
+                    <CheckBox x:Name="EstaVigente" Content="Esta Vigente" HorizontalAlignment="Left" Margin="32,192,0,0" VerticalAlignment="Top" Foreground="#FF7E3B82" VerticalContentAlignment="Stretch" FlowDirection="RightToLeft" Width="186">
+
+                    </CheckBox>
+                    <CheckBox x:Name="Salud" Content="Declaración Salud " Margin="47,225,0,0" VerticalAlignment="Top" Foreground="#FF7E3B82" Width="171" HorizontalAlignment="Left" VerticalContentAlignment="Stretch" FlowDirection="RightToLeft" Checked="CheckBox_Checked">
+
+                    </CheckBox>
+                    <Label Content="Observaciones" HorizontalAlignment="Left" Margin="23,243,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="Observaciones" HorizontalAlignment="Left" Margin="27,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="191" Foreground="#FF7E3B82" Background="White">
+                        <TextBlock.Effect>
+                            <DropShadowEffect/>
+                        </TextBlock.Effect><Run Text="Sin pre"/><Run Text="-"/><Run Text="exi"/><Run Text="s"/><Run Text="tencia"/></TextBlock>
+
+
+
+                </Grid>
+            </Canvas>
+        </Controls:Flyout>
+
+        <!--Cliente-->
+        <Controls:Flyout x:Name="Cliente_FO"  Visibility="Hidden" Position="Right" Background="#FF7D7484" Width="692" Grid.Row="2" Foreground="White" Header="Cliente">
+            <Canvas RenderTransformOrigin="0.274,0.863" Height="369"  >
+
+                <Grid Height="327" Width="601" Canvas.Left="10" Background="#FF7D7484">
+
+
+                    <TextBox x:Name="txtRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,463,268" Height="26" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" Foreground="White" CaretBrush="White" >
+                        <TextBox.Effect>
+                            <DropShadowEffect/>
+                        </TextBox.Effect>
+                    </TextBox>
+                    <Label Canvas.Left="47" Canvas.Top="75" Content="Rut" Foreground="#FFFDFDFD" FontSize="14" RenderTransformOrigin="-0.054,0.535" FontWeight="Bold" Margin="10,0,347,301" />
+
+                    <Label Content="Nombres" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="72" Foreground="White" FontWeight="Bold"/>
+                    <TextBox x:Name="txtNombres" RenderTransformOrigin="3.697,5.117" Canvas.Left="47" Canvas.Top="109" Foreground="White" Margin="10,116,423,191" CaretBrush="White" >
+                        <TextBox.Effect>
+                            <DropShadowEffect/>
+                        </TextBox.Effect>
+                    </TextBox>
+
+                    <Label Content="Apellidos" HorizontalAlignment="Left" Margin="218,85,0,0" VerticalAlignment="Top" Width="72" Foreground="White" RenderTransformOrigin="0.431,2.5" FontWeight="Bold"/>
+                    <TextBox x:Name="txtApellidos" RenderTransformOrigin="3.697,5.117" Canvas.Left="47" Canvas.Top="109" Foreground="#FFF9F0F0" Margin="218,116,215,191" CaretBrush="White" >
+                        <TextBox.Effect>
+                            <DropShadowEffect Color="White"/>
+                        </TextBox.Effect>
+                    </TextBox>
+
+                    <Label  Content="Sexo" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="218,158,215,107"/>
+                    <ComboBox  x:Name="Sexo" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="219,187,224,115" ItemsSource="{Binding sexo, ElementName=metroWindow}" SelectionChanged="CPlan_SelectionChanged" Foreground="White" >
+                        <ComboBox.Effect>
+                            <DropShadowEffect/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+
+                    <Label  Content="Fecha Nacimiento" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="10,158,411,95"/>
+                    <DatePicker x:Name="dateFecha" Canvas.Left="256" SelectedDate="{x:Static sys:DateTime.Now}"    FontWeight="Bold" FontSize="14" Canvas.Top="244" Margin="10,187,423,116" Foreground="White">
+                        <DatePicker.Effect>
+                            <DropShadowEffect/>
+                        </DatePicker.Effect>
+                    </DatePicker>
+
+                    <Label  Content="Estado Civil" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="416,158,17,108"/>
+                    <ComboBox  x:Name="EstadoCivil" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="416,187,27,115" ItemsSource="{Binding estadocivil, ElementName=metroWindow}" SelectionChanged="CPlan_SelectionChanged" Foreground="White" >
+                        <ComboBox.Effect>
+                            <DropShadowEffect/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+
+                    <!--Cliente Botones-->
+
+                    <mah:Tile x:Name="AgregarCliente" Height="Auto" Margin="36,262,463,37" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" Click="AgregarCliente_Click" >
+                        <mah:Tile.Effect>
+                            <DropShadowEffect/>
+                        </mah:Tile.Effect>
+                        <mah:Tile.Background>
+                            <ImageBrush ImageSource="imagen/UserAdd.png" Stretch="None"/>
+                        </mah:Tile.Background>
+                    </mah:Tile>
+
+                    <mah:Tile x:Name="EliminarCliente" Height="Auto" Margin="170,262,329,37" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" >
+                        <mah:Tile.Effect>
+                            <DropShadowEffect/>
+                        </mah:Tile.Effect>
+                        <mah:Tile.Background>
+                            <ImageBrush ImageSource="imagen/UserDelete.png" Stretch="None"/>
+                        </mah:Tile.Background>
+                    </mah:Tile>
+
+                    <mah:Tile x:Name="ActualizarCliente" Height="Auto" Margin="309,262,190,37" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" >
+                        <mah:Tile.Effect>
+                            <DropShadowEffect/>
+                        </mah:Tile.Effect>
+                        <mah:Tile.Background>
+                            <ImageBrush ImageSource="imagen/UserUpdate.png" Stretch="None"/>
+                        </mah:Tile.Background>
+                    </mah:Tile>
+
+                    <mah:Tile x:Name="BuscarCliente" Height="Auto" Margin="218,26,281,268" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" >
+                        <mah:Tile.Effect>
+                            <DropShadowEffect/>
+                        </mah:Tile.Effect>
+                        <mah:Tile.Background>
+                            <ImageBrush ImageSource="imagen/UserSearch.png" Stretch="None"/>
+                        </mah:Tile.Background>
+                    </mah:Tile>
+
+                    <mah:Tile x:Name="ListarClientes" Height="Auto" Margin="359,26,139,268" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" >
+                        <mah:Tile.Effect>
+                            <DropShadowEffect/>
+                        </mah:Tile.Effect>
+                        <mah:Tile.Background>
+                            <ImageBrush ImageSource="imagen/userlist.png" Stretch="None"/>
+                        </mah:Tile.Background>
+                    </mah:Tile>
+
+                </Grid>
+            </Canvas>
+        </Controls:Flyout>
+
+        <!--Listar Cliente-->
+        <Controls:Flyout x:Name="Cliente_Listar" Visibility="Collapsed" Position="Right" Background="#FF7D7484" Width="692" Grid.Row="2" Foreground="White" Header="Listar Clientes">
+            <mah:Flyout.Effect>
+                <DropShadowEffect/>
+            </mah:Flyout.Effect>
+            <Canvas RenderTransformOrigin="0.274,0.863"  >
+                <Grid Height="291" Width="682" Canvas.Left="10">
+
+                    <TextBox x:Name="LRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,526,224" Height="26" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" Foreground="White" Background="White" CaretBrush="White" >
+                        <TextBox.Effect>
+                            <DropShadowEffect/>
+                        </TextBox.Effect>
+                    </TextBox>
+                    <Label Canvas.Left="47" Canvas.Top="75" Content="Rut" Foreground="#FFFDFDFD" FontSize="14" RenderTransformOrigin="-0.054,0.535" FontWeight="Bold" Margin="10,10,347,252" />
+
+                    <Label  Content="Sexo" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="195,10,112,255"/>
+                    <ComboBox  x:Name="LSexo" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="195,41,361,224" ItemsSource="{Binding sexo, ElementName=metroWindow}" Foreground="White"  >
+                        <ComboBox.Effect>
+                            <DropShadowEffect/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+
+                    <Label  Content="Estado Civil" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="373,10,60,256"/>
+                    <ComboBox  x:Name="LEstadoCivil" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="373,41,178,224" ItemsSource="{Binding estadocivil, ElementName=metroWindow}" Foreground="White"  >
+                        <ComboBox.Effect>
+                            <DropShadowEffect/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+
+
+                    <mah:Tile x:Name="FiltroContrato" Margin="550,35,25,224" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" Height="Auto" >
+                        <mah:Tile.Effect>
+                            <DropShadowEffect/>
+                        </mah:Tile.Effect>
+                        <mah:Tile.Background>
+                            <ImageBrush ImageSource="imagen/Filtro.png" Stretch="None"/>
+                        </mah:Tile.Background>
+                    </mah:Tile>
+
+                    <DataGrid HorizontalAlignment="Left" Height="199" Margin="11,98,0,-6" VerticalAlignment="Top"  SelectionChanged="DataGrid_SelectionChanged" Foreground="White" Background="#FF5B4660" OpacityMask="White" CanUserAddRows="False" CanUserDeleteRows="False" RenderTransformOrigin="0.5,0.5">
+                        <DataGrid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="1.123"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.98"/>
+                            </TransformGroup>
+                        </DataGrid.RenderTransform>
+                        <DataGrid.Effect>
+                            <DropShadowEffect/>
+                        </DataGrid.Effect>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="ID" Foreground="White"/>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Nombre" Foreground="White"/>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Apellido" Foreground="White"/>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Sexo" Foreground="White"/>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Estado Civil" Foreground="White"/>
+                        </DataGrid.Columns>
+
+
+                    </DataGrid>
+
+
+                </Grid>
+            </Canvas>
+        </Controls:Flyout>
+
+        <!--Listar Contrato-->
+        <Controls:Flyout x:Name="Contrato_Listar"  Position="Right" Background="#FF7D7484" Width="692" Grid.Row="2" Foreground="White" Header="Listar Contratos" Visibility="Hidden">
+            <Canvas RenderTransformOrigin="0.274,0.863"  >
+
+                <Grid Height="291" Width="682" Canvas.Left="10">
+
+
+                    <TextBox x:Name="CoRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,540,224" Height="26" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" CaretBrush="White" Foreground="White" SelectionBrush="White" >
+                        <TextBox.Effect>
+                            <DropShadowEffect/>
+                        </TextBox.Effect>
+                    </TextBox>
+                    <Label Canvas.Left="47" Canvas.Top="75" Content="Rut" Foreground="#FFFDFDFD" FontSize="14" RenderTransformOrigin="-0.054,0.535" FontWeight="Bold" Margin="10,10,347,252" />
+
+                    <TextBox x:Name="NContrato" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="1234567789"  Canvas.Top="34" Margin="196,0,347,224" Height="26" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" CaretBrush="White" Foreground="White" >
+                        <TextBox.Effect>
+                            <DropShadowEffect/>
+                        </TextBox.Effect>
+                    </TextBox>
+                    <Label Canvas.Left="47" Canvas.Top="75" Content="N° Contrato" Foreground="#FFFDFDFD" FontSize="14" RenderTransformOrigin="-0.054,0.535" FontWeight="Bold" Margin="196,7,161,255" />
+
+
+                    <Label  Content="Tipo Plan" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="373,10,60,256"/>
+                    <ComboBox  x:Name="TipoPlan2" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="373,41,171,224" ItemsSource="{Binding opciones, ElementName=metroWindow}" Foreground="White"  >
+                        <ComboBox.Effect>
+                            <DropShadowEffect/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+
+                    <mah:Tile x:Name="FiltroCliente" Margin="550,35,25,224" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" Height="Auto" >
+                        <mah:Tile.Effect>
+                            <DropShadowEffect/>
+                        </mah:Tile.Effect>
+                        <mah:Tile.Background>
+                            <ImageBrush ImageSource="imagen/Filtro.png" Stretch="None"/>
+                        </mah:Tile.Background>
+                    </mah:Tile>
+
+                    <DataGrid Height="170" VerticalAlignment="Top"  SelectionChanged="DataGrid_SelectionChanged" Foreground="White" Background="#FF5B4660" OpacityMask="White" Margin="0,135,10,-14" GridLinesVisibility="All" HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" VerticalGridLinesBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
+                        <DataGrid.Effect>
+                            <DropShadowEffect/>
+                        </DataGrid.Effect>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="N° Contrato" Foreground="White"/>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Rut Cliente" Foreground="White"/>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Fecha Creación" Foreground="White"/>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Nombres" Foreground="White"/>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Fecha Inicio" Foreground="White"/>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Fecha Fin" Foreground="White"/>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Vigencia" Foreground="White"/>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Declaración Salud" Foreground="White"/>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Prima Mensual" Foreground="White"/>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Prima Anual" Foreground="White"/>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Observaciones" Foreground="White"/>
+                        </DataGrid.Columns>
+
+
+                    </DataGrid>
+
+
+
+
+
+                </Grid>
+            </Canvas>
+        </Controls:Flyout>
+
+    </Grid>
+
+</Controls:MetroWindow>
