@@ -22,3 +22,15 @@ E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\BeLifeProjetConexion\BibliotecaNegocio
 E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\BeLifeProjetConexion\BibliotecaNegocio\bin\Debug\AccesoDato.dll.config
 E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\BeLifeProjetConexion\BibliotecaNegocio\bin\Debug\EntityFramework.xml
 E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\BeLifeProjetConexion\BibliotecaNegocio\obj\Debug\BibliotecaNegocio.csproj.CopyComplete
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BibliotecaNegocio\bin\Debug\BibliotecaNegocio.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BibliotecaNegocio\bin\Debug\BibliotecaNegocio.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BibliotecaNegocio\bin\Debug\AccesoDato.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BibliotecaNegocio\bin\Debug\EntityFramework.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BibliotecaNegocio\bin\Debug\AccesoDato.pdb
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BibliotecaNegocio\bin\Debug\AccesoDato.dll.config
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BibliotecaNegocio\bin\Debug\EntityFramework.xml
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BibliotecaNegocio\obj\Debug\BibliotecaNegocio.csprojResolveAssemblyReference.cache
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BibliotecaNegocio\obj\Debug\BibliotecaNegocio.csproj.CoreCompileInputs.cache
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BibliotecaNegocio\obj\Debug\BibliotecaNegocio.csproj.CopyComplete
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BibliotecaNegocio\obj\Debug\BibliotecaNegocio.dll
+E:\ProyectosVisualStudio\Grafic\Wpf\tu ex\U2_BeLife\BibliotecaNegocio\obj\Debug\BibliotecaNegocio.pdb
