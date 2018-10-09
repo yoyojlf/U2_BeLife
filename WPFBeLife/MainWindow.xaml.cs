@@ -63,7 +63,7 @@ namespace WPFBeLife
             //FiltroSexo();
             //FiltroEstadoCivil();
         }
-        //filtro rut
+        //filtro rut//
         private void Filtro()
         {
             Cliente sour = new Cliente();
