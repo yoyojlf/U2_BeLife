@@ -405,7 +405,25 @@ namespace WPFBeLife
 
         #endregion
 
-
+        #region Win Contrato
+        private void ClearWinContrato()
+        {
+            TxtNumeroContrato.Text = string.Empty;
+            TxtContratoRut.Text = string.Empty;
+            //cargar comboBox Plan
+            Plan ComboContratoPlan = new Plan();
+            
+            CbContratoPlanes.ItemsSource = ComboContratoPlan.ReadAll();
+            CbContratoPlanes.SelectedValuePath = "IdPlan";
+            CbContratoPlanes.DisplayMemberPath = "Nombre";
+            CbContratoPlanes.SelectedIndex = 0;
+            TxtBkContratoObserva.Text = string.Empty;
+            DpContratoInicio.SelectedDate = DateTime.Today;
+            LbContratoTipoPlan.Content = CbContratoPlanes.Text;
+            ChBContratoEstaVigente.IsChecked = true;
+            ChBContratoSalud.IsChecked = false;
+        }
+        #endregion
         public List<String> opciones
         {
             get; set;
@@ -447,9 +465,10 @@ namespace WPFBeLife
 
         private void Contrato_Click(object sender, RoutedEventArgs e)
         {
-            //Contrato_FO.IsOpen = true;
+            Contrato_FO.IsOpen = true;
             Cliente_FO.IsOpen = false;
-            //Cliente_Listar.IsOpen = false;
+            ClearWinContrato();
+            Cliente_Listar.IsOpen = false;
             //Contrato_Listar.IsOpen = false;
         }
 

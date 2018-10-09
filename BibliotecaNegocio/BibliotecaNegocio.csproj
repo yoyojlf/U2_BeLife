@@ -49,6 +49,7 @@
     <Compile Include="Contrato.cs" />
     <Compile Include="Enumerados.cs" />
     <Compile Include="EstadoCivil.cs" />
+    <Compile Include="Plan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sexo.cs" />
     <Compile Include="Tarificador.cs" />

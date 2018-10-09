@@ -18,7 +18,6 @@
             <RowDefinition Height="343*"/>
         </Grid.RowDefinitions>
         <Image x:Name="Logo" HorizontalAlignment="Left" Height="42" Margin="30,10,0,0" VerticalAlignment="Top" Width="129" Source="imagen/logoBeLife.png"/>
-        <Image x:Name="contraste" HorizontalAlignment="Left" Margin="715,7,0,0" VerticalAlignment="Top" Source="imagen/Contraste.png" Height="57" Width="51"/>
         <Controls:Tile x:Name="ListarCliente1" Height="60" Margin="9,155,723,169" Width="60" Grid.Row="2" Click="ListarCliente_Click" >
             <mah:Tile.Effect>
                 <DropShadowEffect/>
@@ -114,9 +113,9 @@
 
 
         </mah:Tile>
-        <mah:Tile x:Name="Home" Height="60" Margin="10,8,722,275" Width="60" Grid.Row="2" Click="Home_Click" SnapsToDevicePixels="True" >
+        <mah:Tile x:Name="Contraste" Height="Auto" Margin="708,0,10,20" Width="Auto" Click="Cliente_Click" SnapsToDevicePixels="True" Grid.RowSpan="2" >
             <mah:Tile.Background>
-                <ImageBrush ImageSource="imagen/home.png" Stretch="None"/>
+                <ImageBrush ImageSource="imagen/Contraste.png" Stretch="None"/>
             </mah:Tile.Background>
             <mah:Tile.Effect>
                 <DropShadowEffect/>
@@ -125,13 +124,13 @@
 
         <!--Home-->
 
-        <!--<Controls:Flyout  x:Name="Contrato_FO"   Position="Right" Background="#FF7D7484" Width="692" Grid.Row="2" Foreground="White" Header="Contrato" Margin="0,3,0,0" Visibility="Hidden">
+        <Controls:Flyout  x:Name="Contrato_FO"   Position="Right" Background="#FF7D7484" Width="692" Grid.Row="2" Foreground="White" Header="Contrato" Margin="0,3,0,0" Visibility="Hidden">
             <Canvas RenderTransformOrigin="0.274,0.863" Height="324"  >
 
                 <Grid Height="291" Width="397" Canvas.Left="10">
                     <Label Content="Nº Contrato" Canvas.Left="47" Width="103" Foreground="#FFFBFBFB" FontSize="14" FontWeight="Bold" Margin="10,10,284,252" RenderTransformOrigin="0.544,-0.196"/>
 
-                    <TextBox x:Name="CRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,236,172" Height="26" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" FontWeight="Bold" Foreground="Black" SelectionBrush="Black" CaretBrush="White" >
+                    <TextBox x:Name="TxtContratoRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,236,172" Height="26" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" FontWeight="Bold" Foreground="Black" SelectionBrush="Black" CaretBrush="White" >
                         <TextBox.Effect>
                             <DropShadowEffect/>
                         </TextBox.Effect>
@@ -145,7 +144,7 @@
                     </TextBox>
 
                     <Label Canvas.Left="47" Canvas.Top="145" Content="Nombres" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="9,124,317,139"/>
-                    <TextBox x:Name="CnContrato" Canvas.Left="47" Canvas.Top="174" Margin="10,38,236,227" IsReadOnly="True" IsUndoEnabled="False" MaxLines="2147483646" Foreground="White" >
+                    <TextBox x:Name="TxtNumeroContrato" Canvas.Left="47" Canvas.Top="174" Margin="10,38,236,227" IsReadOnly="True" IsUndoEnabled="False" MaxLines="2147483646" Foreground="White" >
                         <TextBox.Effect>
                             <DropShadowEffect/>
                         </TextBox.Effect>
@@ -160,21 +159,21 @@
                     </TextBox>
 
                     <Label  Content="Plan" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="9,183,343,77"/>
-                    <ComboBox  x:Name="CPlan" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="10,214,236,51" ItemsSource="{Binding opciones, ElementName=metroWindow}" SelectionChanged="CPlan_SelectionChanged" Foreground="White" >
+                    <ComboBox  x:Name="CbContratoPlanes" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="10,214,236,51" ItemsSource="{Binding opciones, ElementName=metroWindow}" SelectionChanged="CPlan_SelectionChanged" Foreground="White" >
                         <ComboBox.Effect>
                             <DropShadowEffect/>
                         </ComboBox.Effect>
                     </ComboBox>
 
                     <Label  Content="Fecha inicio plan" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="214,183,18,63"/>
-                    <DatePicker x:Name="CFecha" Canvas.Left="256" SelectedDate="{x:Static sys:DateTime.Now}"    FontWeight="Bold" FontSize="14" Canvas.Top="244" Margin="214,214,32,51" Foreground="#FFFDFDFD">
+                    <DatePicker x:Name="DpContratoInicio" Canvas.Left="256" SelectedDate="{x:Static sys:DateTime.Now}"    FontWeight="Bold" FontSize="14" Canvas.Top="244" Margin="214,214,32,51" Foreground="#FFFDFDFD">
                         <DatePicker.Effect>
                             <DropShadowEffect/>
                         </DatePicker.Effect>
                     </DatePicker>
                     <Grid/>
 
-                    --><!--Botones Contrato--><!--
+                    <!--Botones Contrato-->
 
                     <mah:Tile x:Name="AgregarContrato" Height="Auto" Margin="22,271,272,-14" Width="Auto"  Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" >
                         <mah:Tile.Effect>
@@ -226,26 +225,26 @@
 
 
 
-                    --><!--Resumen Plan--><!--
+                    <!--Resumen Plan-->
                 </Grid>
                 <Grid  Height="346" Width="248" Canvas.Left="434" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" Canvas.Top="-32">
                     <Label  Content="Resumen Plan" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.591,0.036" Cursor="None" Foreground="#FF7E3B82" FontWeight="Bold"/>
                     <Label Content="Tipo Plan:" HorizontalAlignment="Left" Margin="27,41,0,0" VerticalAlignment="Top" Width="71" FontWeight="Bold"/>
                     <Label Content="Poliza:" HorizontalAlignment="Left" Margin="27,76,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.673,0.115" FontWeight="Bold"/>
                     <Label Content="Prima Anual:" HorizontalAlignment="Left" Margin="27,112,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.231" FontWeight="Bold"/>
-                    <Label x:Name="TipoPlan" Content="[Vida Inicial]" HorizontalAlignment="Left" Margin="121,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.237,0.538" Width="97" Background="White" Foreground="#FF7E3B82" HorizontalContentAlignment="Right" FontWeight="Bold"/>
-                    <Label x:Name="poliza" Content="[XXXXX] " HorizontalAlignment="Left" Margin="121,76,0,0" VerticalAlignment="Top" Foreground="#FF7E3B82" Background="White" Width="97" HorizontalContentAlignment="Right" FontWeight="Bold"/>
-                    <Label x:Name="PrimaAnual" Content="[XXXXX] " Margin="121,112,0,0" VerticalAlignment="Top" Width="97" Foreground="#FF7E3B82" Background="White" HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontWeight="Bold"/>
+                    <Label x:Name="LbContratoTipoPlan" Content="[Vida Inicial]" HorizontalAlignment="Left" Margin="121,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.237,0.538" Width="97" Background="White" Foreground="#FF7E3B82" HorizontalContentAlignment="Right" FontWeight="Bold"/>
+                    <Label x:Name="LbPoliza" Content="[XXXXX] " HorizontalAlignment="Left" Margin="121,76,0,0" VerticalAlignment="Top" Foreground="#FF7E3B82" Background="White" Width="97" HorizontalContentAlignment="Right" FontWeight="Bold"/>
+                    <Label x:Name="LbPrimaAnual" Content="[XXXXX] " Margin="121,112,0,0" VerticalAlignment="Top" Width="97" Foreground="#FF7E3B82" Background="White" HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontWeight="Bold"/>
                     <Label Content="Prima Mensual:" HorizontalAlignment="Left" Margin="23,151,0,0" VerticalAlignment="Top" Width="98" FontWeight="Bold"/>
-                    <Label x:Name="PrimaMensual" Content="[XXXXX] " HorizontalAlignment="Left" Margin="121,151,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,0.115" Width="97" Background="White" Foreground="#FF7E3B82" HorizontalContentAlignment="Right" FontWeight="Bold"/>
-                    <CheckBox x:Name="EstaVigente" Content="Esta Vigente" HorizontalAlignment="Left" Margin="32,192,0,0" VerticalAlignment="Top" Foreground="#FF7E3B82" VerticalContentAlignment="Stretch" FlowDirection="RightToLeft" Width="186">
+                    <Label x:Name="LbPrimaMensual" Content="[XXXXX] " HorizontalAlignment="Left" Margin="121,151,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,0.115" Width="97" Background="White" Foreground="#FF7E3B82" HorizontalContentAlignment="Right" FontWeight="Bold"/>
+                    <CheckBox x:Name="ChBContratoEstaVigente" Content="Esta Vigente" HorizontalAlignment="Left" Margin="32,192,0,0" VerticalAlignment="Top" Foreground="#FF7E3B82" VerticalContentAlignment="Stretch" FlowDirection="RightToLeft" Width="186">
 
                     </CheckBox>
-                    <CheckBox x:Name="Salud" Content="Declaración Salud " Margin="47,225,0,0" VerticalAlignment="Top" Foreground="#FF7E3B82" Width="171" HorizontalAlignment="Left" VerticalContentAlignment="Stretch" FlowDirection="RightToLeft" Checked="CheckBox_Checked">
+                    <CheckBox x:Name="ChBContratoSalud" Content="Declaración Salud " Margin="47,225,0,0" VerticalAlignment="Top" Foreground="#FF7E3B82" Width="171" HorizontalAlignment="Left" VerticalContentAlignment="Stretch" FlowDirection="RightToLeft" Checked="CheckBox_Checked">
 
                     </CheckBox>
                     <Label Content="Observaciones" HorizontalAlignment="Left" Margin="23,243,0,0" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="Observaciones" HorizontalAlignment="Left" Margin="27,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="191" Foreground="#FF7E3B82" Background="White">
+                    <TextBlock x:Name="TxtBkContratoObserva" HorizontalAlignment="Left" Margin="27,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="191" Foreground="#FF7E3B82" Background="White">
                         <TextBlock.Effect>
                             <DropShadowEffect/>
                         </TextBlock.Effect><Run Text="Sin pre"/><Run Text="-"/><Run Text="exi"/><Run Text="s"/><Run Text="tencia"/></TextBlock>
@@ -254,7 +253,7 @@
 
                 </Grid>
             </Canvas>
-        </Controls:Flyout>-->
+        </Controls:Flyout>
 
         <!--Cliente-->
         <Controls:Flyout x:Name="Cliente_FO"  Visibility="Hidden" Position="Right" Background="#FF7D7484" Width="692" Grid.Row="2" Foreground="White" Header="Cliente">
