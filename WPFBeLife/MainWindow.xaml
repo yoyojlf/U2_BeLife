@@ -364,7 +364,7 @@
             <Canvas RenderTransformOrigin="0.274,0.863"  >
                 <Grid Height="291" Width="682" Canvas.Left="10">
 
-                    <TextBox x:Name="LRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,526,224" Height="26" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" Foreground="White" Background="White" CaretBrush="White" >
+                    <TextBox x:Name="TxtRutList" ToolTip="11111111-1" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,526,224" Height="26" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" Foreground="Black" Background="White" CaretBrush="#FFF3F0F0"  >
                         <TextBox.Effect>
                             <DropShadowEffect/>
                         </TextBox.Effect>
@@ -372,21 +372,21 @@
                     <Label Canvas.Left="47" Canvas.Top="75" Content="Rut" Foreground="#FFFDFDFD" FontSize="14" RenderTransformOrigin="-0.054,0.535" FontWeight="Bold" Margin="10,10,347,252" />
 
                     <Label  Content="Sexo" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="195,10,112,255"/>
-                    <ComboBox  x:Name="CbSexoListaCli" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="195,41,361,224" ItemsSource="{Binding sexo, ElementName=metroWindow}" Foreground="White"  >
+                    <ComboBox  x:Name="CbSexoListaCli" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="195,41,361,224" ItemsSource="{Binding sexo, ElementName=metroWindow}" Foreground="White" SelectionChanged="CbSexoListaCli_SelectionChanged"  >
                         <ComboBox.Effect>
                             <DropShadowEffect/>
                         </ComboBox.Effect>
                     </ComboBox>
 
                     <Label  Content="Estado Civil" Foreground="#FFFFF7F7" FontWeight="Bold" FontSize="14" Margin="373,10,60,256"/>
-                    <ComboBox  x:Name="CbEstadoCivilListaCli" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="373,41,178,224" ItemsSource="{Binding estadocivil, ElementName=metroWindow}" Foreground="White"  >
+                    <ComboBox  x:Name="CbEstadoCivilListaCli" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="373,41,178,224" ItemsSource="{Binding estadocivil, ElementName=metroWindow}" Foreground="White" SelectionChanged="CbEstadoCivilListaCli_SelectionChanged"  >
                         <ComboBox.Effect>
                             <DropShadowEffect/>
                         </ComboBox.Effect>
                     </ComboBox>
 
 
-                    <mah:Tile x:Name="FiltroContrato" Margin="550,35,25,224" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" Height="Auto" >
+                    <mah:Tile x:Name="BtnFiltrarClientes" Margin="550,35,25,224" Width="Auto" Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" Height="Auto" Click="BtnFiltrarClientes_Click" >
                         <mah:Tile.Effect>
                             <DropShadowEffect/>
                         </mah:Tile.Effect>

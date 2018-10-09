@@ -55,6 +55,136 @@ namespace WPFBeLife
             DgClientes.Items.Refresh();
             //CargaRut();
         }
+
+        //filtros por sexo y estado civil
+        private void BtnFiltrarClientes_Click(object sender, RoutedEventArgs e)
+        {
+            Filtro();
+            //FiltroSexo();
+            //FiltroEstadoCivil();
+        }
+        //filtro rut
+        private void Filtro()
+        {
+            Cliente sour = new Cliente();
+            if (!TxtRutList.Text.Equals(string.Empty))
+            {
+                DgClientes.ItemsSource = sour.ReadAll().Where(r => r.RutCliente == TxtRutList.Text);
+                
+                MessageBox.Show("" + DgClientes.Items.Count);
+                if (DgClientes.Items.Count == 0)
+                {
+                    MessageBox.Show("no existe cliente con ese rut "+TxtRutList.Text);
+                    DgClientes.ItemsSource = sour.ReadAll();
+                }
+            }
+            else
+            {
+                FiltroSexo();
+                FiltroEstadoCivil();
+            }
+        }
+        //filtro sexo
+        private void CbSexoListaCli_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //FiltroSexo();
+
+        }
+        private void FiltroSexo()
+        {
+            Cliente clieSex = new Cliente();
+            List<Cliente> listaSex = new List<Cliente>();
+            listaSex = clieSex.ReadAll();
+            try
+            {
+                MessageBox.Show("" + CbSexoListaCli.SelectedIndex);
+                
+                if ((int)CbSexoListaCli.SelectedIndex > -1&& (int)CbSexoListaCli.SelectedValue != 0)
+                {
+                    MessageBox.Show("" + (int)CbSexoListaCli.SelectedValue);
+                    if ((int)CbEstadoCivilListaCli.SelectedIndex > -1 && (int)CbEstadoCivilListaCli.SelectedValue != 0)
+                    {
+                        DgClientes.ItemsSource = listaSex.Where(e => e.IdEstadoCivil == (int)CbEstadoCivilListaCli.SelectedValue).Where(s => s.IdSexo == (int)CbSexoListaCli.SelectedValue);
+
+                    }
+                    else
+                    {
+                        DgClientes.ItemsSource = listaSex.Where(s => s.IdSexo == (int)CbSexoListaCli.SelectedValue);
+                    }
+                    
+                }
+                else
+                {
+                    if ((int)CbEstadoCivilListaCli.SelectedIndex > -1 && (int)CbEstadoCivilListaCli.SelectedValue != 0)
+                    {
+                        FiltroEstadoCivil();
+                    }
+                    else
+                    {
+                        DgClientes.ItemsSource = listaSex;
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                DgClientes.ItemsSource = listaSex;
+            }
+
+        }
+
+        //filtro estado civil
+        private void CbEstadoCivilListaCli_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //FiltroEstadoCivil();
+        }
+
+        private void FiltroEstadoCivil()
+        {
+            Cliente clieEst = new Cliente();
+            List<Cliente> listaEst = new List<Cliente>();
+
+            listaEst = clieEst.ReadAll();
+            try
+            {
+                
+                MessageBox.Show("" + (int)CbSexoListaCli.SelectedIndex);
+                if ((int)CbEstadoCivilListaCli.SelectedIndex > -1 && (int)CbEstadoCivilListaCli.SelectedValue != 0)
+                {
+                    if ((int)CbSexoListaCli.SelectedIndex > -1 && (int)CbSexoListaCli.SelectedValue != 0)
+                    {
+                        DgClientes.ItemsSource = listaEst.Where(e => e.IdEstadoCivil == (int)CbEstadoCivilListaCli.SelectedValue).Where(s => s.IdSexo == (int)CbSexoListaCli.SelectedValue);
+                        
+                    }
+                    else
+                    {
+                        DgClientes.ItemsSource = listaEst.Where(e => e.IdEstadoCivil == (int)CbEstadoCivilListaCli.SelectedValue);
+                    }
+
+                }
+                else
+                {
+                    if ((int)CbSexoListaCli.SelectedIndex > -1 && (int)CbSexoListaCli.SelectedValue != 0)
+                    {
+                        FiltroSexo();
+                    }
+                    else
+                    {
+
+                        DgClientes.ItemsSource = listaEst;
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                DgClientes.ItemsSource = listaEst;
+            }
+
+        }
         #endregion
 
         #region Win Cliente
@@ -85,15 +215,29 @@ namespace WPFBeLife
             //LbRut.DisplayMemberPath = "Rut";
             //cargar combo box del filtro en lista de usuarios
             //Sexo
-            CbSexoListaCli.ItemsSource = ComboSexo.ReadAll();
+            List<Sexo> ListSexito = new List<Sexo>();
+            Sexo sexito = new Sexo();
+            ListSexito = ComboSexo.ReadAll();
+            sexito.IdSexo = 0;
+            sexito.Descripcion = "No Filtrar";
+            ListSexito.Add(sexito);
+            CbSexoListaCli.ItemsSource = ListSexito;
+
+            
             CbSexoListaCli.SelectedValuePath = "IdSexo";
             CbSexoListaCli.DisplayMemberPath = "Descripcion";
-            
+            CbSexoListaCli.SelectedValue = 0;
             //Estado civil
-            CbEstadoCivilListaCli.ItemsSource = ComboEstados.ReadAll();
+            List<EstadoCivil> ListEstadito = new List<EstadoCivil>();
+            EstadoCivil estadito = new EstadoCivil();
+            ListEstadito = ComboEstados.ReadAll();
+            estadito.IdEstadoCivil = 0;
+            estadito.Descripcion = "No Filtrar";
+            ListEstadito.Add(estadito);
+            CbEstadoCivilListaCli.ItemsSource = ListEstadito;
             CbEstadoCivilListaCli.SelectedValuePath = "IdEstadoCivil";
             CbEstadoCivilListaCli.DisplayMemberPath = "Descripcion";
-            
+            CbEstadoCivilListaCli.SelectedValue = 0;
 
             MostrarClientes();
         }
