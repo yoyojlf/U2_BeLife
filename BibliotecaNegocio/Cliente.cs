@@ -257,6 +257,32 @@ namespace BibliotecaNegocio
                 return false;
             }
         }
+        //ReadAllBySexo
+        public List<Cliente> ReadAllBySexo()
+        {
+            List<BibliotecaNegocio.Cliente> clientes = new List<Cliente>();
+            var consulta = this.ReadAll().Where(s => s.IdSexo == IdSexo);
+            foreach (Cliente con in consulta)
+            {
+                Cliente cliente = new Cliente();
+                CommonBC.Syncronize(con, cliente);
+                clientes.Add(cliente);
+            }
+            return clientes;
+        }
+        //ReadAllByEstadoCivil
+        public List<Cliente> ReadAllByEstadoCivil()
+        {
+            List<BibliotecaNegocio.Cliente> clientes = new List<Cliente>();
+            var consulta = this.ReadAll().Where(e => e.IdEstadoCivil == IdEstadoCivil);
+            foreach (Cliente con in consulta)
+            {
+                Cliente cliente = new Cliente();
+                CommonBC.Syncronize(con, cliente);
+                clientes.Add(cliente);
+            }
+            return clientes;
+        }
         #endregion
 
     }

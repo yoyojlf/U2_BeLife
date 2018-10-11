@@ -24,10 +24,12 @@ namespace WPFBeLife
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        #region Constructor
         public MainWindow()
         {
             InitializeComponent();
             MostrarClientes();
+            Prueba();
             opciones = new List<String>();
             opciones.Add("Plan 1");
             opciones.Add("Plan 2");
@@ -46,6 +48,22 @@ namespace WPFBeLife
             estadocivil.Add("Divorciado");
 
         }
+        #endregion
+
+        #region prueba
+        private void Prueba()
+        {
+            string[] collection1 = new string[] { "1", "7", "4", "8", "9" };
+            string[] collection2 = new string[] { "6", "1", "7", "8" };
+
+            var resultSet = collection1.Intersect<string>(collection2);
+
+            foreach (string s in resultSet)
+            {
+                MessageBox.Show(s);
+            }
+        }
+        #endregion
 
         #region Data Clientes
         private void MostrarClientes()
@@ -59,9 +77,84 @@ namespace WPFBeLife
         //filtros por sexo y estado civil
         private void BtnFiltrarClientes_Click(object sender, RoutedEventArgs e)
         {
-            Filtro();
+            UltimateFilter();
+            //Filtro();
             //FiltroSexo();
             //FiltroEstadoCivil();
+        }
+        //ultima version de filtro de Sexo & Estado civil
+        private void UltimateFilter()
+        {
+            Cliente FiltroClie = new Cliente();
+            try
+            {
+                if (!TxtRutList.Text.Equals(string.Empty))
+                {
+                    DgClientes.ItemsSource = FiltroClie.ReadAll().Where(r => r.RutCliente == TxtRutList.Text);
+                    MessageBox.Show("Filtro por rut");
+                    MessageBox.Show("" + DgClientes.Items.Count);
+                    if (DgClientes.Items.Count == 0)
+                    {
+                        MessageBox.Show("no existe cliente con ese rut " + TxtRutList.Text);
+                        DgClientes.ItemsSource = FiltroClie.ReadAll();
+                    }
+                }
+                else
+                {
+                    if ((int)CbSexoListaCli.SelectedIndex > -1 && (int)CbSexoListaCli.SelectedValue != 0 && (int)CbEstadoCivilListaCli.SelectedIndex > -1 && (int)CbEstadoCivilListaCli.SelectedValue != 0)
+                    {
+                        //si ambos combo box estan alterados se asigna el valor de la id de sexo y estado civil
+                        //a nuestro ojeto cliente (FiltroClie)
+                        FiltroClie.IdSexo = (int)CbSexoListaCli.SelectedValue;
+                        FiltroClie.IdEstadoCivil = (int)CbEstadoCivilListaCli.SelectedValue;
+                        /*una vez asignados se procede a usar los elementos ReadAllBySexo y ReadAllByEstadoCivil*/
+                        //La siguiente linea no funciona
+                        //DgClientes.ItemsSource = FiltroClie.ReadAllBySexo().Intersect(FiltroClie.ReadAllByEstadoCivil() );
+                        /* a continuacion el link donde encontramos la solucion para el filtro
+                         * http://www.qualityinfosolutions.com/comparar-listas-de-objetos-utilizando-linq-c/ */
+                        DgClientes.ItemsSource = (from s in FiltroClie.ReadAllBySexo()
+                                                  where (from e in FiltroClie.ReadAllByEstadoCivil()
+                                                         select e.RutCliente).Contains(s.RutCliente)
+                                                  select s).Distinct().ToList();
+                        //intentare un metodo nuevo
+                        // lruits1.Where(product => !fruits2Names.Contains(product.Name));
+                        //DgClientes.ItemsSource = FiltroClie.ReadAllBySexo().Where(a =>  FiltroClie.ReadAllByEstadoCivil().Contains(a));
+                        //DgClientes.ItemsSource = FiltroClie.ReadAllBySexo().Join(FiltroClie.ReadAllByEstadoCivil(), a = > a.RutCliente = RutCliente);
+                        MessageBox.Show("Filtro por estado civil y sexo");
+
+                    }
+                    else
+                    {
+                        if (((int)CbEstadoCivilListaCli.SelectedIndex > -1 && (int)CbEstadoCivilListaCli.SelectedValue != 0) || ((int)CbSexoListaCli.SelectedIndex > -1 && (int)CbSexoListaCli.SelectedValue != 0))
+                        {
+                            if (((int)CbEstadoCivilListaCli.SelectedIndex > -1 && (int)CbEstadoCivilListaCli.SelectedValue != 0))
+                            {
+                               
+                                FiltroClie.IdEstadoCivil = (int)CbEstadoCivilListaCli.SelectedValue;
+                                DgClientes.ItemsSource = FiltroClie.ReadAllByEstadoCivil();
+                                MessageBox.Show("Filtro solo estado civil");
+                            }
+                            if(((int)CbSexoListaCli.SelectedIndex > -1 && (int)CbSexoListaCli.SelectedValue != 0))
+                            {
+                                FiltroClie.IdSexo = (int)CbSexoListaCli.SelectedValue;
+                                
+                                DgClientes.ItemsSource = FiltroClie.ReadAllBySexo();
+                                MessageBox.Show("Filtro solo sexo");
+                            }
+                        }
+                        else
+                        {
+                            DgClientes.ItemsSource = FiltroClie.ReadAll();
+                            MessageBox.Show("sin Filtro");
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Durante el filtrado se produjo una excepsion: Detalle --> " + ex);
+            }
         }
         //filtro rut//
         private void Filtro()
@@ -439,10 +532,10 @@ namespace WPFBeLife
             get; set;
         }
 
-        
 
 
 
+        #region Open Win
         private void Cliente_Click(object sender, RoutedEventArgs e)
         {
 
@@ -489,7 +582,7 @@ namespace WPFBeLife
             //Cliente_Listar.IsOpen = false;
             //Contrato_Listar.IsOpen = false;
         }
-
+        #endregion
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -561,3 +654,4 @@ namespace WPFBeLife
     }
 
 }
+ 
