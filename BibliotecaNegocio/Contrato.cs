@@ -23,7 +23,53 @@ namespace BibliotecaNegocio
         public Cliente Cliente { get; set; }
         public Plan Plan { get; set; }
 
+        #region Constructor
+        public Contrato()
+        {
+            Init();
+        }
+
+        #region Iniciador
+        private void Init()
+        {
+            Numero = String.Empty;
+            FechaCreacion = new DateTime();
+            CodigoPlan = String.Empty;
+            FechaInicioVigencia = new DateTime();
+            FechaFinVigencia = new DateTime();
+            Vigente = false;
+            DeclaracionSalud = false;
+            PrimaAnual = 0f;
+            PrimaMensual = 0f;
+            Observaciones = string.Empty;
+        }
+        #endregion
+
+        #endregion
+
         #region Metodos
+        //creacion de numero contrato
+        private string ObtNumContrato()
+        {
+
+            int mes = DateTime.Now.Month;
+            int dia = DateTime.Now.Day;
+            int hora = DateTime.Now.Hour;
+            int minu = DateTime.Now.Minute;
+            int seg = DateTime.Now.Second;
+
+            string anno = DateTime.Now.Year + "";
+            string mess, dias, horr, minus, segu;
+
+            if (mes < 10) { mess = "0" + mes; } else { mess = mes + ""; }
+            if (dia < 10) { dias = "0" + dia; } else { dias = dia + ""; }
+            if (hora < 10) { horr = "0" + hora; } else { horr = hora + ""; }
+            if (minu < 10) { minus = "0" + minu; } else { minus = minu + ""; }
+            if (seg < 10) { segu = "0" + seg; } else { segu = seg + ""; }
+
+
+            return anno + mess + dias + horr + minus + segu;
+        }
         //Leer contrato
         public bool Read()
         {

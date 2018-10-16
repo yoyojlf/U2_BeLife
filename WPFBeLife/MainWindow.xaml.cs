@@ -516,6 +516,97 @@ namespace WPFBeLife
             ChBContratoEstaVigente.IsChecked = true;
             ChBContratoSalud.IsChecked = false;
         }
+
+        //buscar contrato
+        private void BuscarContrato_Click(object sender, RoutedEventArgs e)
+        {
+            BibliotecaNegocio.Contrato wContrato = new Contrato();
+            try
+            {
+                if (TxtNumeroContrato.Text.Equals(string.Empty))
+                {
+                    wContrato.Numero = TxtNumeroContrato.Text;
+                    if (wContrato.Read())
+                    {
+                        CargaContrato(wContrato);
+                    }
+                    else
+                    {
+                        MessageBox.Show("El contrato que busca no existe");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se puede buscar si no ingresa un numero de Contrato");                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                
+            }
+        }
+
+        //carga contrato
+        private void CargaContrato(Contrato contrato)
+        {
+            
+            TxtContratoRut.Text = contrato.Cliente.RutCliente;
+            //cargar comboBox Plan
+
+            CbContratoPlanes.SelectedValue = contrato.Plan.IdPlan;
+            TxtBkContratoObserva.Text = contrato.Observaciones;
+            DpContratoInicio.SelectedDate = contrato.FechaInicioVigencia;
+            LbContratoTipoPlan.Content = CbContratoPlanes.Text;
+            ChBContratoEstaVigente.IsChecked = contrato.Vigente;
+            ChBContratoSalud.IsChecked = contrato.DeclaracionSalud;
+        }
+
+        //carga cliente contrato
+        private void TxtContratoRut_TouchEnter(object sender, TouchEventArgs e)
+        {
+            Cliente clin = new Cliente();
+            try
+            {
+                if (TxtContratoRut.Text.Equals(string.Empty))
+                {
+                    clin.RutCliente = TxtContratoRut.Text;
+                    if (clin.Read())
+                    {
+                        TxtContratoNombre.Text = clin.Nombres;
+                        TxtContratoApellido.Text = clin.Apellidos;
+                    }
+                    else
+                    {
+                        TxtContratoNombre.Text = "no";
+                        TxtContratoApellido.Text = "encontrado";
+                    }
+                }
+                else
+                {
+                    TxtContratoNombre.Text = "Esta";
+                    TxtContratoApellido.Text = "vacio";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        //Cambio combo plan
+        private void CbContratoPlanes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ChangePlan();
+        }
+
+        //changed plan
+        private void ChangePlan()
+        {
+            Plan plan = new Plan();
+            plan.IdPlan = CbContratoPlanes.SelectedValue.ToString();
+            plan.Read();
+            LbContratoTipoPlan.Content = plan.Nombre;
+            MessageBox.Show(CbContratoPlanes.Text + " " + CbContratoPlanes.SelectedValue + " " + LbContratoTipoPlan.Content);
+        }
         #endregion
         public List<String> opciones
         {
