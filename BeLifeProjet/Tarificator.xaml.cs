@@ -63,8 +63,8 @@ namespace BeLifeProjet
             {
                 if (double.Parse(TxtBase.Text)>=0)
                 {
-                    BibliotecaNegocio.Tarificador Tari = new Tarificador((DateTime) DpFechaNac.SelectedDate, (int)CbSexo.SelectedValue, (int)CbEstadoCivil.SelectedValue);
-                    TxtPrima.Text = Tari.CalcularPrimaBase(double.Parse(TxtBase.Text))+" UF";
+                    //BibliotecaNegocio.Tarificador Tari = new Tarificador((DateTime) DpFechaNac.SelectedDate, (int)CbSexo.SelectedValue, (int)CbEstadoCivil.SelectedValue);
+                    //TxtPrima.Text = Tari.CalcularPrimaBase(double.Parse(TxtBase.Text))+" UF";
                 }
                 else
                 {

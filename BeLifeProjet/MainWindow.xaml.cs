@@ -228,8 +228,8 @@ namespace BeLifeProjet
             double Tarifa = 0;
             try
             {
-                Tar = new Tarificador((DateTime)DpFechaNacimiento.SelectedDate,(int) CbSexo.SelectedValue,(int) CbEstadoCivil.SelectedValue);
-                Tarifa = Tar.CalcularPrimaBase(double.Parse(TxtBase.Text));
+                //Tar = new Tarificador((DateTime)DpFechaNacimiento.SelectedDate,(int) CbSexo.SelectedValue,(int) CbEstadoCivil.SelectedValue);
+                //Tarifa = Tar.CalcularPrimaBase(double.Parse(TxtBase.Text));
                 MessageBox.Show("La prima Calculada es de: " + Tarifa.ToString(),"Prima");
             }catch(Exception ex)
             {

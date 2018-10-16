@@ -130,7 +130,7 @@
                 <Grid Height="291" Width="397" Canvas.Left="10">
                     <Label Content="Nº Contrato" Canvas.Left="47" Width="103" Foreground="#FFFBFBFB" FontSize="14" FontWeight="Bold" Margin="10,10,284,252" RenderTransformOrigin="0.544,-0.196"/>
 
-                    <TextBox x:Name="TxtContratoRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,236,172" Height="26" VerticalAlignment="Bottom" MaxLines="1" MaxLength="10" FontWeight="Bold" Foreground="Black" SelectionBrush="Black" CaretBrush="White" >
+                    <TextBox x:Name="TxtContratoRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,236,172" Height="26" VerticalAlignment="Bottom" MaxLines="1" MaxLength="10" FontWeight="Bold" Foreground="Black" SelectionBrush="Black" CaretBrush="White" TextChanged="TxtContratoRut_TextChanged" >
                         <TextBox.Effect>
                             <DropShadowEffect/>
                         </TextBox.Effect>
@@ -175,7 +175,7 @@
 
                     <!--Botones Contrato-->
 
-                    <mah:Tile x:Name="AgregarContrato" Height="Auto" Margin="22,271,272,-14" Width="Auto"  Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" >
+                    <mah:Tile x:Name="AgregarContrato" Height="Auto" Margin="22,271,272,-14" Width="Auto"  Padding="0" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="ExtraBold" FontSize="16" FontStretch="UltraExpanded" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" FontStyle="Italic" KeepDragging="False" Click="AgregarContrato_Click" >
                         <mah:Tile.Effect>
                             <DropShadowEffect/>
                         </mah:Tile.Effect>
@@ -461,7 +461,7 @@
                         </mah:Tile.Background>
                     </mah:Tile>
 
-                    <DataGrid Height="170" VerticalAlignment="Top"  SelectionChanged="DataGrid_SelectionChanged" Foreground="White" Background="#FF5B4660" OpacityMask="White" Margin="0,135,10,-14" GridLinesVisibility="All" HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" VerticalGridLinesBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
+                    <DataGrid x:Name="DgContratos" Height="170" VerticalAlignment="Top"  SelectionChanged="DataGrid_SelectionChanged" Foreground="White" Background="#FF5B4660" OpacityMask="White" Margin="0,135,10,-14" GridLinesVisibility="All" HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" VerticalGridLinesBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
                         <DataGrid.Effect>
                             <DropShadowEffect/>
                         </DataGrid.Effect>

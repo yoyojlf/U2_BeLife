@@ -49,10 +49,10 @@ namespace BibliotecaNegocio.Tests
         {
             try
             {
-                tarificador = new Tarificador();
-                tarificador.EstadoCivil.IdEstadoCivil = 1;
-                tarificador.Sexo.IdSexo = 1;
-                tarificador.FechaNacimiento = new DateTime(2008, 1, 1);
+                //tarificador = new Tarificador();
+                //tarificador.EstadoCivil.IdEstadoCivil = 1;
+                //tarificador.Sexo.IdSexo = 1;
+                //tarificador.FechaNacimiento = new DateTime(2008, 1, 1);
 
             }catch(ArgumentException ex)
             {
@@ -73,9 +73,9 @@ namespace BibliotecaNegocio.Tests
             tarificador = new Tarificador(); //inician con los valores por defecto
 
             //  act
-            tarificador.EstadoCivil.IdEstadoCivil = 1;
-            tarificador.Sexo.IdSexo = 1;
-            tarificador.FechaNacimiento = new DateTime(2008, 1, 1); //modifico la edad para provocar la excepcion verificar que provoque excepcion con edad fuera de rango
+            //tarificador.EstadoCivil.IdEstadoCivil = 1;
+            //tarificador.Sexo.IdSexo = 1;
+            //tarificador.FechaNacimiento = new DateTime(2008, 1, 1); //modifico la edad para provocar la excepcion verificar que provoque excepcion con edad fuera de rango
         }
 
         [TestMethod()]
@@ -85,7 +85,7 @@ namespace BibliotecaNegocio.Tests
             double Bass = 5.5d; //  valor base a ingresar
             double Realidad;
             double Espectativa = 6.2d; //   el valor que deveria retornar es 6.2
-            tarificador = new Tarificador(new DateTime(1996, 6, 7),1,2); //inicializamos el tarificador con esas 22 años sexo hombre y estado civil casado
+            //tarificador = new Tarificador(new DateTime(1996, 6, 7),1,2); //inicializamos el tarificador con esas 22 años sexo hombre y estado civil casado
 
             //  act
             Realidad = tarificador.CalcularPrimaBase(Bass);
@@ -102,7 +102,7 @@ namespace BibliotecaNegocio.Tests
             double Bass = 5.5d; //  valor base a ingresar
             double Realidad;
             double Espectativa = 6.1d; //   el valor que deveria retornar es 6.2
-            tarificador = new Tarificador(new DateTime(1996, 6, 7), 2, 2); //inicializamos el tarificador con esas 22 años sexo Mujer y estado civil divorciado
+            //tarificador = new Tarificador(new DateTime(1996, 6, 7), 2, 2); //inicializamos el tarificador con esas 22 años sexo Mujer y estado civil divorciado
 
             //  act
             Realidad = tarificador.CalcularPrimaBase(Bass);

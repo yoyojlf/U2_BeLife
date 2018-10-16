@@ -30,6 +30,7 @@ namespace WPFBeLife
             InitializeComponent();
             MostrarClientes();
             Prueba();
+            CargaContratos();
             opciones = new List<String>();
             opciones.Add("Plan 1");
             opciones.Add("Plan 2");
@@ -53,15 +54,15 @@ namespace WPFBeLife
         #region prueba
         private void Prueba()
         {
-            string[] collection1 = new string[] { "1", "7", "4", "8", "9" };
-            string[] collection2 = new string[] { "6", "1", "7", "8" };
+            //string[] collection1 = new string[] { "1", "7", "4", "8", "9" };
+            //string[] collection2 = new string[] { "6", "1", "7", "8" };
 
-            var resultSet = collection1.Intersect<string>(collection2);
+            //var resultSet = collection1.Intersect<string>(collection2);
 
-            foreach (string s in resultSet)
-            {
-                MessageBox.Show(s);
-            }
+            //foreach (string s in resultSet)
+            //{
+            //    MessageBox.Show(s);
+            //}
         }
         #endregion
 
@@ -544,7 +545,46 @@ namespace WPFBeLife
                 
             }
         }
+        //otener contrato
+        private Contrato RecuperaContratoWin()
+        {
+            Contrato contra;
+            try
+            {
+                //verificar que todos esten con algun dato
+                if(TxtContratoRut.Text.Equals(string.Empty)&& CbContratoPlanes.SelectedValue.ToString().Equals(string.Empty)&&cargaClient())
+                {
+                    contra = new Contrato();
+                    contra.FechaCreacion = DateTime.Today;
+                    contra.RutCliente = TxtContratoRut.Text;
+                    contra.CodigoPlan = CbContratoPlanes.SelectedValue.ToString();
+                    contra.FechaFinVigencia = DpContratoInicio.SelectedDate.Value;
+                    contra.Vigente = ChBContratoEstaVigente.IsChecked.Value;
+                    contra.DeclaracionSalud = ChBContratoSalud.IsChecked.Value;
+                    contra.PrimaAnual = double.Parse(LbPrimaAnual.Content.ToString(),0.0);
+                    contra.PrimaMensual = double.Parse(LbPrimaMensual.Content.ToString(), 0.0);
+                    contra.Observaciones = TxtBkContratoObserva.Text;
+                    return contra;
+                }else
+                {
+                    return null;
+                }
+              
+                
 
+               
+                
+                
+                
+                
+                 
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
         //carga contrato
         private void CargaContrato(Contrato contrato)
         {
@@ -560,7 +600,42 @@ namespace WPFBeLife
             ChBContratoSalud.IsChecked = contrato.DeclaracionSalud;
         }
 
+        //text change
+        private void TxtContratoRut_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //MessageBox.Show(TxtContratoRut.Text);
+            cargaClient();
+        }
         //carga cliente contrato
+        private bool cargaClient()
+        {
+            Cliente clin = new Cliente();
+            try
+            {
+                
+                    clin.RutCliente = TxtContratoRut.Text;
+                    if (clin.Read())
+                    {
+                        MessageBox.Show("si existe");
+                        TxtContratoNombre.Text = clin.Nombres;
+                        TxtContratoApellido.Text = clin.Apellidos;
+                    return true;
+                    }
+                    else
+                    {
+                    //MessageBox.Show("else");
+                        TxtContratoNombre.Text = "no";
+                        TxtContratoApellido.Text = "encontrado";
+                    return false;
+                    }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
         private void TxtContratoRut_TouchEnter(object sender, TouchEventArgs e)
         {
             Cliente clin = new Cliente();
@@ -602,10 +677,51 @@ namespace WPFBeLife
         private void ChangePlan()
         {
             Plan plan = new Plan();
-            plan.IdPlan = CbContratoPlanes.SelectedValue.ToString();
-            plan.Read();
-            LbContratoTipoPlan.Content = plan.Nombre;
-            MessageBox.Show(CbContratoPlanes.Text + " " + CbContratoPlanes.SelectedValue + " " + LbContratoTipoPlan.Content);
+            Cliente clie = new Cliente();
+            try
+            {
+                clie.RutCliente = TxtContratoRut.Text;
+
+                Tarificador tari = new Tarificador();
+                plan.IdPlan = CbContratoPlanes.SelectedValue.ToString();
+                plan.Read();
+                LbContratoTipoPlan.Content = plan.Nombre;
+                LbPoliza.Content = plan.PolizaActual;
+                if (clie.Read())
+                {
+                    tari.cliente = clie;
+                    LbPrimaAnual.Content = tari.CalcularPrimaBase(plan.PrimaBase);
+                    LbPrimaMensual.Content = tari.CalcularPrimaBase(plan.PrimaBase) / 12;
+                }
+                MessageBox.Show(CbContratoPlanes.Text + " " + CbContratoPlanes.SelectedValue + " " + LbContratoTipoPlan.Content);
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        //agregar contrato
+        private void AgregarContrato_Click(object sender, RoutedEventArgs e)
+        {
+            Contrato contrato = new Contrato();
+            if (RecuperaContratoWin() != null)
+            {
+                contrato = RecuperaContratoWin();
+                contrato.Create();
+                MessageBox.Show("contrato agregado");
+            }
+            else
+            {
+                MessageBox.Show("Error!!!");
+            }
+        }
+        #endregion
+
+        #region Data Contrato
+        private void CargaContratos()
+        {
+            Contrato con = new Contrato();
+            DgContratos.ItemsSource = con.ReadAll();
+            DgContratos.Items.Refresh();
         }
         #endregion
         public List<String> opciones
@@ -630,21 +746,21 @@ namespace WPFBeLife
         private void Cliente_Click(object sender, RoutedEventArgs e)
         {
 
-            //Contrato_FO.IsOpen = false;
+            Contrato_FO.IsOpen = false;
             Cliente_FO.IsOpen = true;
             Limpiar();
             Cliente_Listar.IsOpen = false;
-            //Contrato_Listar.IsOpen = false;
+            Contrato_Listar.IsOpen = false;
         }
 
         private void ListarCliente_Click(object sender, RoutedEventArgs e)
         {
 
-            //Contrato_FO.IsOpen = false;
+            Contrato_FO.IsOpen = false;
             Cliente_FO.IsOpen = false;
             Cliente_Listar.IsOpen = true;
             Limpiar();
-            //Contrato_Listar.IsOpen = false;
+            Contrato_Listar.IsOpen = false;
         }
 
         private void Contrato_Click(object sender, RoutedEventArgs e)
@@ -653,25 +769,25 @@ namespace WPFBeLife
             Cliente_FO.IsOpen = false;
             ClearWinContrato();
             Cliente_Listar.IsOpen = false;
-            //Contrato_Listar.IsOpen = false;
+            Contrato_Listar.IsOpen = false;
         }
 
         private void ListarContrato_Click(object sender, RoutedEventArgs e)
         {
-            //Contrato_FO.IsOpen = false;
+            Contrato_FO.IsOpen = false;
             Cliente_FO.IsOpen = false;
-            //Cliente_Listar.IsOpen = false;
-            //Contrato_Listar.IsOpen = true;
+            Cliente_Listar.IsOpen = false;
+            Contrato_Listar.IsOpen = true;
 
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-            //Contrato_FO.IsOpen = false;
+            Contrato_FO.IsOpen = false;
             Cliente_FO.IsOpen = false;
             Limpiar();
-            //Cliente_Listar.IsOpen = false;
-            //Contrato_Listar.IsOpen = false;
+            Cliente_Listar.IsOpen = false;
+            Contrato_Listar.IsOpen = false;
         }
         #endregion
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -741,7 +857,7 @@ namespace WPFBeLife
 
     }
 
-        
+       
     }
 
 }

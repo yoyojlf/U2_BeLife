@@ -8,11 +8,29 @@ namespace BibliotecaNegocio
 {
     public class Contrato
     {
+        private DateTime fechaInicioVigencia;
         public string Numero { get; set; }
         public DateTime FechaCreacion { get; set; }
         public string RutCliente { get; set; }
         public string CodigoPlan { get; set; }
-        public DateTime FechaInicioVigencia { get; set; }
+        public DateTime FechaInicioVigencia {
+            get
+            {
+                return fechaInicioVigencia;
+            }
+            set
+            {
+                if (value >= FechaCreacion && value <= FechaCreacion.AddMonths(1))
+                {
+                    fechaInicioVigencia = value;
+                    FechaFinVigencia = value.AddYears(1);
+                }
+                else
+                {
+                    throw new ArgumentException("La fecha de inicio de vigencia no puede ser menor a la fecha de creacion ni mayor a un mes despues de esta!!!");
+                }
+            }
+        }
         public DateTime FechaFinVigencia { get; set; }
         public bool Vigente { get; set; }
         public bool DeclaracionSalud { get; set; }
@@ -32,7 +50,7 @@ namespace BibliotecaNegocio
         #region Iniciador
         private void Init()
         {
-            Numero = String.Empty;
+            Numero = this.ObtNumContrato();
             FechaCreacion = new DateTime();
             CodigoPlan = String.Empty;
             FechaInicioVigencia = new DateTime();

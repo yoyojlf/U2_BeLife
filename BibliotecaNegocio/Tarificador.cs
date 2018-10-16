@@ -8,61 +8,17 @@ namespace BibliotecaNegocio
 {
     public class Tarificador
     {
-        #region Campos
-        private DateTime fechaNacimiento;
-        private Sexo sexo;
-        private EstadoCivil estadoCivil;
+        #region Campos propiedades
+        public Cliente cliente { get; set; }
         #endregion
 
-        #region Propiedades
-        public DateTime FechaNacimiento {
-            get
-            {
-                return fechaNacimiento;
-            }
-            set
-            {
-                TimeSpan dif = DateTime.Now - value;
-                int anios = (int)(Math.Truncate(dif.TotalDays / 365.25));
-                if(anios >= 18 && anios <= 50)
-                {
-                    fechaNacimiento = value;
-                }
-                else
-                {
-                    throw new ArgumentException("EDAD FUERA DE RANGO\nLa Edad debe Estar entre los 18 y 50 años!!!");
-                }
-            }
-        }
-        public Sexo Sexo {
-            get
-            {
-                return sexo;
-            }
-            set
-            {
-                sexo = value;
-            }
-        }
-        public EstadoCivil EstadoCivil {
-            get
-            {
-                return estadoCivil;
-            }
-            set
-            {
-                estadoCivil = value;
-            }
-        }
-        #endregion
+        
 
         #region Constructor
-        public Tarificador(DateTime fechaNac,int IdSex,int IdEst)
+        public Tarificador(Cliente clie)
         {
             Init();
-            FechaNacimiento = fechaNac;
-            Sexo.IdSexo = IdSex;
-            EstadoCivil.IdEstadoCivil = IdEst;
+            cliente = clie;
         }
 
         public Tarificador()
@@ -72,9 +28,7 @@ namespace BibliotecaNegocio
 
         private void Init()
         {
-            FechaNacimiento = new DateTime(1990, 01, 01);
-            Sexo = new Sexo();
-            EstadoCivil = new EstadoCivil();
+            cliente = new Cliente();
         }
         #endregion
 
@@ -93,7 +47,7 @@ namespace BibliotecaNegocio
                     if (edad >= 18 && edad <= 25) Prima += 0.3d;
                     if (edad >= 26 && edad <= 45) Prima += 0.2d;
                     if (edad >= 46 && edad <= 50) Prima += 0.5d;
-                    switch (Sexo.IdSexo)
+                    switch (cliente.IdSexo)
                     {
                         case 1:
                             Prima += 0.2d;
@@ -105,7 +59,7 @@ namespace BibliotecaNegocio
                             Prima += 0;
                             break;
                     }
-                    switch (EstadoCivil.IdEstadoCivil)
+                    switch (cliente.IdEstadoCivil)
                     {
                         case 1:
                             Prima += 0.4d;
@@ -134,7 +88,7 @@ namespace BibliotecaNegocio
         private int CalcularEdad()
         {
            
-            TimeSpan dif = DateTime.Now - FechaNacimiento;
+            TimeSpan dif = DateTime.Now - cliente.FechaNacimiento;
             int anios = (int)(Math.Truncate(dif.TotalDays / 365.25));
 
             return anios;
