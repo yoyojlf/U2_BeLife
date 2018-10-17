@@ -23,7 +23,7 @@ namespace BibliotecaNegocio
                 if (value >= FechaCreacion && value <= FechaCreacion.AddMonths(1))
                 {
                     fechaInicioVigencia = value;
-                    FechaFinVigencia = value.AddYears(1);
+                    
                 }
                 else
                 {
@@ -52,8 +52,10 @@ namespace BibliotecaNegocio
         {
             Numero = this.ObtNumContrato();
             FechaCreacion = new DateTime();
+            FechaCreacion = DateTime.Today;
             CodigoPlan = String.Empty;
-            FechaInicioVigencia = new DateTime();
+            fechaInicioVigencia = new DateTime();
+            FechaInicioVigencia = DateTime.Today;
             FechaFinVigencia = new DateTime();
             Vigente = false;
             DeclaracionSalud = false;
@@ -66,6 +68,11 @@ namespace BibliotecaNegocio
         #endregion
 
         #region Metodos
+        //cargar fecha fin vigencia
+        public void FinVigencia()
+        {
+            FechaFinVigencia = FechaInicioVigencia.AddYears(1);
+        }
         //creacion de numero contrato
         private string ObtNumContrato()
         {
@@ -135,6 +142,7 @@ namespace BibliotecaNegocio
             AccesoDato.Contrato contrato = new AccesoDato.Contrato();
             try
             {
+                LeerClientePlan();
                 CommonBC.Syncronize(this, contrato);
                 Contexto.Contrato.Add(contrato);
                 Contexto.SaveChanges();
@@ -202,6 +210,7 @@ namespace BibliotecaNegocio
             try
             {
                 AccesoDato.Contrato contrato = Contexto.Contrato.First(c => c.Numero == Numero);
+                LeerClientePlan();
                 CommonBC.Syncronize(this, contrato);
 
                 Contexto.SaveChanges();

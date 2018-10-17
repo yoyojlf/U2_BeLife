@@ -524,7 +524,7 @@ namespace WPFBeLife
             BibliotecaNegocio.Contrato wContrato = new Contrato();
             try
             {
-                if (TxtNumeroContrato.Text.Equals(string.Empty))
+                if (!TxtNumeroContrato.Text.Equals(string.Empty))
                 {
                     wContrato.Numero = TxtNumeroContrato.Text;
                     if (wContrato.Read())
@@ -552,7 +552,7 @@ namespace WPFBeLife
             try
             {
                 //verificar que todos esten con algun dato
-                if(TxtContratoRut.Text.Equals(string.Empty)&& CbContratoPlanes.SelectedValue.ToString().Equals(string.Empty)&&cargaClient())
+                if(!TxtContratoRut.Text.Equals(string.Empty)&& !CbContratoPlanes.SelectedValue.ToString().Equals(string.Empty)&&cargaClient())
                 {
                     contra = new Contrato();
                     contra.FechaCreacion = DateTime.Today;
@@ -561,8 +561,9 @@ namespace WPFBeLife
                     contra.FechaFinVigencia = DpContratoInicio.SelectedDate.Value;
                     contra.Vigente = ChBContratoEstaVigente.IsChecked.Value;
                     contra.DeclaracionSalud = ChBContratoSalud.IsChecked.Value;
-                    contra.PrimaAnual = double.Parse(LbPrimaAnual.Content.ToString(),0.0);
-                    contra.PrimaMensual = double.Parse(LbPrimaMensual.Content.ToString(), 0.0);
+                    contra.PrimaAnual =  ((double) Math.Truncate(double.Parse(LbPrimaAnual.Content.ToString())*100))/100;
+                    contra.PrimaMensual = ((double) Math.Truncate(double.Parse(LbPrimaMensual.Content.ToString())*100))/100;
+                    MessageBox.Show(contra.PrimaAnual + " " + contra.PrimaMensual);
                     contra.Observaciones = TxtBkContratoObserva.Text;
                     return contra;
                 }else
@@ -691,7 +692,7 @@ namespace WPFBeLife
                 {
                     tari.cliente = clie;
                     LbPrimaAnual.Content = tari.CalcularPrimaBase(plan.PrimaBase);
-                    LbPrimaMensual.Content = tari.CalcularPrimaBase(plan.PrimaBase) / 12;
+                    LbPrimaMensual.Content = tari.CalcularPrimaBase(plan.PrimaBase) / 12; 
                 }
                 MessageBox.Show(CbContratoPlanes.Text + " " + CbContratoPlanes.SelectedValue + " " + LbContratoTipoPlan.Content);
             }catch(Exception ex)
@@ -706,6 +707,7 @@ namespace WPFBeLife
             if (RecuperaContratoWin() != null)
             {
                 contrato = RecuperaContratoWin();
+                contrato.FinVigencia();
                 contrato.Create();
                 MessageBox.Show("contrato agregado");
             }
