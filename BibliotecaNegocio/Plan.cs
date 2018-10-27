@@ -25,10 +25,10 @@ namespace BibliotecaNegocio
         //Metodo para Leer un plan
         public bool Read()
         {
-            AccesoDato.BeLifeEntities Contexto = new AccesoDato.BeLifeEntities();
+            
             try
             {
-                AccesoDato.Plan plan = Contexto.Plan.First(p => p.IdPlan == IdPlan);
+                AccesoDato.Plan plan = Conexion.Contexto.Plan.First(p => p.IdPlan == IdPlan);
                 CommonBC.Syncronize(plan, this);
 
                 return true;
@@ -41,10 +41,10 @@ namespace BibliotecaNegocio
         //Metodo para leer todos los planes
         public List<Plan> ReadAll()
         {
-            AccesoDato.BeLifeEntities Contexto = new AccesoDato.BeLifeEntities();
+            
             try
             {
-                List<AccesoDato.Plan> ListaPlanesBD = Contexto.Plan.ToList<AccesoDato.Plan>();
+                List<AccesoDato.Plan> ListaPlanesBD = Conexion.Contexto.Plan.ToList<AccesoDato.Plan>();
                 //Lista salida
                 List<Plan> ListaPlanesBC = GenerarListaPlanes(ListaPlanesBD);
 

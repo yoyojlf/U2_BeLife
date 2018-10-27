@@ -28,7 +28,7 @@ namespace BibliotecaNegocio
                 }
                 else
                 {
-                    throw new ArgumentException("El rut no puede estar vacio culero!!!!");
+                    throw new ArgumentException("El rut no puede estar vacio!!!!");
                 }
             }
             get
@@ -51,7 +51,7 @@ namespace BibliotecaNegocio
                 }
                 else
                 {
-                    throw new ArgumentException("El nombre no puede estar vacio culero!!!");
+                    throw new ArgumentException("El nombre no puede estar vacio!!!");
                 }
             }
         }
@@ -70,7 +70,7 @@ namespace BibliotecaNegocio
                 }
                 else
                 {
-                    throw new ArgumentException("El apellido no puede estar vacio Culero!!!");
+                    throw new ArgumentException("El apellido no puede estar vacio!!!");
                 }
             }
         }
@@ -141,10 +141,10 @@ namespace BibliotecaNegocio
         #region Metodos
         public bool Read()
         {
-            AccesoDato.BeLifeEntities Contexto = new AccesoDato.BeLifeEntities();
+            
             try
             {
-                AccesoDato.Cliente Clien = Contexto.Cliente.First(b => b.RutCliente == RutCliente);
+                AccesoDato.Cliente Clien = Conexion.Contexto.Cliente.First(b => b.RutCliente == RutCliente);
                 CommonBC.Syncronize(Clien, this);
                 this.LeerDescripcion();
                 return true;
@@ -179,18 +179,18 @@ namespace BibliotecaNegocio
 
         public bool Create()
         {
-            AccesoDato.BeLifeEntities Contexto = new AccesoDato.BeLifeEntities();
+            
             AccesoDato.Cliente Clien = new AccesoDato.Cliente();
             try
             {
                 CommonBC.Syncronize(this, Clien);
-                Contexto.Cliente.Add(Clien);
-                Contexto.SaveChanges();
+                Conexion.Contexto.Cliente.Add(Clien);
+                Conexion.Contexto.SaveChanges();
 
                 return true;
             }catch(Exception ex)
             {
-                Contexto.Cliente.Remove(Clien);
+                Conexion.Contexto.Cliente.Remove(Clien);
 
                 return false;
             }
@@ -198,12 +198,12 @@ namespace BibliotecaNegocio
 
         public bool Delete()
         {
-            AccesoDato.BeLifeEntities Contexto = new AccesoDato.BeLifeEntities();
+            
             try
             {
-                AccesoDato.Cliente Clien = Contexto.Cliente.First(b => b.RutCliente == RutCliente);
-                Contexto.Cliente.Remove(Clien);
-                Contexto.SaveChanges();
+                AccesoDato.Cliente Clien = Conexion.Contexto.Cliente.First(b => b.RutCliente == RutCliente);
+                Conexion.Contexto.Cliente.Remove(Clien);
+                Conexion.Contexto.SaveChanges();
 
                 return true;
             }catch(Exception ex)
@@ -214,10 +214,10 @@ namespace BibliotecaNegocio
 
         public List<Cliente> ReadAll()
         {
-            AccesoDato.BeLifeEntities Contexto = new AccesoDato.BeLifeEntities();
+            
             try
             {
-                List<AccesoDato.Cliente> ListaBD = Contexto.Cliente.ToList<AccesoDato.Cliente>();
+                List<AccesoDato.Cliente> ListaBD = Conexion.Contexto.Cliente.ToList<AccesoDato.Cliente>();
                 //Lista de Salida
                 List<Cliente> ListaBiblioteca = GenerarListaClientes(ListaBD);
 
@@ -243,13 +243,13 @@ namespace BibliotecaNegocio
 
         public bool Update()
         {
-            AccesoDato.BeLifeEntities Contexto = new AccesoDato.BeLifeEntities();
+            
             try
             {
-                AccesoDato.Cliente Clien = Contexto.Cliente.First(b => b.RutCliente == RutCliente);
+                AccesoDato.Cliente Clien = Conexion.Contexto.Cliente.First(b => b.RutCliente == RutCliente);
                 CommonBC.Syncronize(this, Clien);
 
-                Contexto.SaveChanges();
+                Conexion.Contexto.SaveChanges();
 
                 return true;
             }catch(Exception ex)

@@ -17,10 +17,10 @@ namespace BibliotecaNegocio
         #region Metodos
         public bool Read()
         {
-            AccesoDato.BeLifeEntities Contexto = new AccesoDato.BeLifeEntities();
+            
             try
             {
-                AccesoDato.Sexo sexo = Contexto.Sexo.First(b => b.IdSexo == IdSexo);
+                AccesoDato.Sexo sexo = Conexion.Contexto.Sexo.First(b => b.IdSexo == IdSexo);
                 CommonBC.Syncronize(sexo, this);
 
                 return true;
@@ -32,10 +32,10 @@ namespace BibliotecaNegocio
 
         public List<Sexo> ReadAll()
         {
-            AccesoDato.BeLifeEntities Contexto = new AccesoDato.BeLifeEntities();
+            
             try
             {
-                List<AccesoDato.Sexo> ListaSexBD = Contexto.Sexo.ToList<AccesoDato.Sexo>();
+                List<AccesoDato.Sexo> ListaSexBD = Conexion.Contexto.Sexo.ToList<AccesoDato.Sexo>();
                 //Lista salida
                 List<Sexo> ListaSexBB = GenerarListaSexos(ListaSexBD);
 

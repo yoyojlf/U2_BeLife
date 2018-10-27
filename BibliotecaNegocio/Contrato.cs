@@ -98,10 +98,10 @@ namespace BibliotecaNegocio
         //Leer contrato
         public bool Read()
         {
-            AccesoDato.BeLifeEntities Contexto = new AccesoDato.BeLifeEntities();
+            
             try
             {
-                AccesoDato.Contrato contrato = Contexto.Contrato.First(c => c.Numero == Numero);
+                AccesoDato.Contrato contrato = Conexion.Contexto.Contrato.First(c => c.Numero == Numero);
                 CommonBC.Syncronize(contrato, this);
                 this.LeerClientePlan();
                 return true;
@@ -138,20 +138,20 @@ namespace BibliotecaNegocio
         //Crear un nuevo contrato
         public bool Create()
         {
-            AccesoDato.BeLifeEntities Contexto = new AccesoDato.BeLifeEntities();
+            
             AccesoDato.Contrato contrato = new AccesoDato.Contrato();
             try
             {
                 LeerClientePlan();
                 CommonBC.Syncronize(this, contrato);
-                Contexto.Contrato.Add(contrato);
-                Contexto.SaveChanges();
+                Conexion.Contexto.Contrato.Add(contrato);
+                Conexion.Contexto.SaveChanges();
 
                 return true;
             }
             catch (Exception ex)
             {
-                Contexto.Contrato.Remove(contrato);
+                Conexion.Contexto.Contrato.Remove(contrato);
 
                 return false;
             }
@@ -159,12 +159,12 @@ namespace BibliotecaNegocio
         //Borrar contrato
         public bool Delete()
         {
-            AccesoDato.BeLifeEntities Contexto = new AccesoDato.BeLifeEntities();
+            
             try
             {
-                AccesoDato.Contrato contrato = Contexto.Contrato.First(c => c.Numero == Numero);
-                Contexto.Contrato.Remove(contrato);
-                Contexto.SaveChanges();
+                AccesoDato.Contrato contrato = Conexion.Contexto.Contrato.First(c => c.Numero == Numero);
+                Conexion.Contexto.Contrato.Remove(contrato);
+                Conexion.Contexto.SaveChanges();
 
                 return true;
             }
@@ -176,10 +176,10 @@ namespace BibliotecaNegocio
         //Leer todos los contratos
         public List<Contrato> ReadAll()
         {
-            AccesoDato.BeLifeEntities Contexto = new AccesoDato.BeLifeEntities();
+            
             try
             {
-                List<AccesoDato.Contrato> ListaBD = Contexto.Contrato.ToList<AccesoDato.Contrato>();
+                List<AccesoDato.Contrato> ListaBD = Conexion.Contexto.Contrato.ToList<AccesoDato.Contrato>();
                 //Lista de Salida
                 List<Contrato> ListaBiblioteca = GenerarListaContratos(ListaBD);
 
@@ -206,14 +206,14 @@ namespace BibliotecaNegocio
         //Actualiza contratos
         public bool Update()
         {
-            AccesoDato.BeLifeEntities Contexto = new AccesoDato.BeLifeEntities();
+            
             try
             {
-                AccesoDato.Contrato contrato = Contexto.Contrato.First(c => c.Numero == Numero);
+                AccesoDato.Contrato contrato = Conexion.Contexto.Contrato.First(c => c.Numero == Numero);
                 LeerClientePlan();
                 CommonBC.Syncronize(this, contrato);
 
-                Contexto.SaveChanges();
+                Conexion.Contexto.SaveChanges();
 
                 return true;
             }

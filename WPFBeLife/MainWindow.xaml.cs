@@ -558,7 +558,7 @@ namespace WPFBeLife
                     contra.FechaCreacion = DateTime.Today;
                     contra.RutCliente = TxtContratoRut.Text;
                     contra.CodigoPlan = CbContratoPlanes.SelectedValue.ToString();
-                    contra.FechaFinVigencia = DpContratoInicio.SelectedDate.Value;
+                    contra.FechaInicioVigencia = DpContratoInicio.SelectedDate.Value;
                     contra.Vigente = ChBContratoEstaVigente.IsChecked.Value;
                     contra.DeclaracionSalud = ChBContratoSalud.IsChecked.Value;
                     contra.PrimaAnual =  ((double) Math.Truncate(double.Parse(LbPrimaAnual.Content.ToString())*100))/100;
@@ -780,6 +780,7 @@ namespace WPFBeLife
             Cliente_FO.IsOpen = false;
             Cliente_Listar.IsOpen = false;
             Contrato_Listar.IsOpen = true;
+            CargaContratos();
 
         }
 
